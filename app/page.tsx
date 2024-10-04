@@ -1,26 +1,30 @@
 'use client';
 
-import CardHome from "./Components/cardHome";
+import CardHome from "./Components/CardHome";
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div>
-   <h1>Bienvenue dans la gazette des collègues</h1>
-
-<div>
-  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-    Velit voluptas ad, natus labore alias iure ea unde incidunt, 
-    quas odit quos non molestias veritatis recusandae, 
-    quibusdam enim saepe dolorem veniam.</p>
-</div>
-
-<section>
-<CardHome />
-</section>
-<section>
-
-</section>
+    <div className="items-center justify-center">
+      <h1 className="text-4xl font-extrabold text-center relative inline-block text-black p-3">
+        Bienvenue dans notre blog d&apos;entreprise
+      </h1>
+      <div>
+        <h2 className="text-xl font-extrabold text-center relative inline-block text-black p-3">
+          Vous trouverez infos / articles / petites annonces
+        </h2>
+      </div>
+      <section className="relative h-[400px]"> {/* Définissez la hauteur souhaitée ici */}
+        <Image
+          src="/images/133719.jpg"
+          alt="personnes travaillant"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          fill // Utilisez "fill" pour que l'image prenne tout l'espace du conteneur
+        />
+      </section>
+      <section className="mt-8">
+        <CardHome />
+      </section>
     </div>
-
   );
 }
