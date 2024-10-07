@@ -14,15 +14,15 @@ export default function Home() {
           Vous trouverez infos / articles / petites annonces
         </h2>
       </div>
-      <section className="relative h-[400px]"> {/* Définissez la hauteur souhaitée ici */}
+      <section className="relative h-[400px]"> 
         <Image
           src="/images/133719.jpg"
           alt="personnes travaillant"
           className="absolute top-0 left-0 w-full h-full object-cover"
-          fill // Utilisez "fill" pour que l'image prenne tout l'espace du conteneur
+          fill
         />
       </section>
-      <section className="mt-8">
+      <section className="mt-8 flex justify-center items-center">
         <CardHome />
       </section>
     </div>
