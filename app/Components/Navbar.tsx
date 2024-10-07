@@ -5,11 +5,11 @@ const navigation = [
   { name: 'Accueil', href: '#', current: true },
   { name: 'Notes / Informations', href: '/Informations', current: false },
   { name: 'Articles', href: '/Articles', current: false },
-  { name: 'Petites annonces', href: '#', current: false },
+  { name: 'Petites annonces', href: '/Annonces', current: false },
   { name: 'Contact', href: '#', current: false },
 ]
 
-function classNames(...classes) {
+function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
