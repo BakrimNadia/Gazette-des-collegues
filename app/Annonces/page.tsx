@@ -14,7 +14,7 @@ export default function Annonces() {
         Partageons nos petites annonces entre collègues
       </p>
       <div className="mt-4 mx-8 p-2 border border-current rounded-lg shadow-xl">
-        <p className="text-lg text-center mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+        <p className="text-lg text-center mb-4 mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
             Qui consequuntur quae molestias repellat dolore magnam dolorem, enim dignissimos 
             commodi! Velit esse, eligendi asperiores saepe minima odit laboriosam! Non, culpa? 
             Repellat praesentium quod asperiores ipsa necessitatibus laboriosam tenetur dolores deserunt, 
