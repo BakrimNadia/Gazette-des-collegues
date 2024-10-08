@@ -5,7 +5,7 @@ import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
 export default function CardArticle() {
   const list = [
     {
-      title: "Le télétravail, un sujet qui partage...",
+      title: "Le télétravail, pour ou contre ?",
       subtitle: "Etes-vous pour ou contre ?",
       img: "images/code.jpeg",
       text: "lire la suite...",
@@ -23,7 +23,7 @@ export default function CardArticle() {
       text: "lire la suite...",
     },
     {
-      title: "Voiture électrique, est-ce l'avenir ?",
+      title: "Voiture électrique, why not ?",
       subtitle: "Les avantages et les inconvénients",
       img: "images/voiture-electrique.jpeg",
       text: "lire la suite...",
@@ -37,7 +37,7 @@ export default function CardArticle() {
   ];
 
   return (
-    <div className="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-center mx-auto max-w-7xl px-4">
       {list.map((item, index) => (
         <Card shadow="sm" key={index} isPressable onPress={() => console.log("item pressed")}>
           <CardBody className="overflow-visible p-0">

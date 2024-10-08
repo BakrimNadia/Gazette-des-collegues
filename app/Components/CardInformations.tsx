@@ -12,7 +12,7 @@ export default function CardInformations() {
     },
     {
       title: "Salle d'entretien rénovée",
-      subtitle: "Agrandissement de la salle et rafraîchissement",
+      subtitle: "Agrandissement et rafraîchissement",
       img: "images/entretien.png",
       text: "lire la suite...",
     },
@@ -37,7 +37,7 @@ export default function CardInformations() {
   ];
 
   return (
-    <div className="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-center mx-auto max-w-7xl px-4">
       {list.map((item, index) => (
         <Card shadow="sm" key={index} isPressable onPress={() => console.log("item pressed")}>
           <CardBody className="overflow-visible p-0">

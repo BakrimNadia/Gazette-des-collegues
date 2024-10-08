@@ -11,7 +11,7 @@ export default function CardAnnonce() {
       text: "lire la suite...",
     },
     {
-      title: "Vend machine à laver quasi-neuve",
+      title: "Vend machine à laver neuve",
       subtitle: "Prix : 200€",
       img: "images/machine-a-laver.jpeg",
       text: "lire la suite...",
@@ -29,7 +29,7 @@ export default function CardAnnonce() {
       text: "lire la suite...",
     },
     {
-      title: "Echange de congés semaine du 15 au 22 novembre",
+      title: "Echange de congés en novembre",
       subtitle: "Service",
       img: "/images/planning.jpeg",
       text: "lire la suite...",
@@ -43,7 +43,7 @@ export default function CardAnnonce() {
   ];
 
   return (
-    <div className="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-center mx-auto max-w-7xl px-4">
       {list.map((item, index) => (
         <Card shadow="sm" key={index} isPressable onPress={() => console.log("item pressed")}>
           <CardBody className="overflow-visible p-0">
