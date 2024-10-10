@@ -1,5 +1,5 @@
 import { Link } from "@nextui-org/react";
-import { Facebook, Instagram } from "react-feather";
+import { Facebook, Instagram, Linkedin, Twitter } from "react-feather";
 
 export default function Footer() {  
     return (
@@ -8,10 +8,16 @@ export default function Footer() {
         <p className="font-bold text-white">Suivez-nous sur les réseaux</p>
         <div className="flex justify-center space-x-4 mt-2">
           <Link href="https://www.facebook.com" target="_blank" rel="noreferrer">
-            <Facebook className="w-6 h-6 text-blue-600"/>
+            <Facebook className="w-6 h-6 text-white-500"/>
           </Link>
           <Link href="https://www.instagram.com" target="_blank" rel="noreferrer">
-            <Instagram className="w-6 h-6 text-pink-500"/>
+            <Instagram className="w-6 h-6 text-white-500"/>
+          </Link>
+          <Link href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+          <Linkedin className="w-6 h-6 text-white-500"/>
+          </Link>
+          <Link href="https://www.twitter.com" target="_blank" rel="noreferrer">
+          <Twitter className="w-6 h-6 text-white-500"/>
           </Link>
         </div>
       </footer>
