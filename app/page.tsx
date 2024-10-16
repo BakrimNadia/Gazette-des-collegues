@@ -23,7 +23,7 @@ export default function Home() {
           fill
         />
       </section>
-      <section className="mt-20 justify-center items-center">
+      <section className="mt-10 justify-center items-center">
       <div>
         <h2 className="text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl mb-8">
          Parcourez nos différentes rubriques
