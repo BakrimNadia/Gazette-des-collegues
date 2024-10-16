@@ -14,7 +14,7 @@ export default function Contact() {
       {/* Main content */}
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contactez-nous</h2>
-        <p className="mt-2 text-lg leading-8 text-gray-600">
+        <p className="mt-2 text-md leading-8 text-gray-600">
           Une suggestion ? Une question ? N&apos;hésitez pas à nous contacter, nous vous répondrons dans les plus brefs délais.
         </p>
       </div>
@@ -97,7 +97,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="sm:col-span-2">
+          <div className="sm:col-span-2 mb-4">
             <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
               Message
             </label>

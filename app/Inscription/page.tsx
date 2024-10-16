@@ -14,7 +14,7 @@ export default function Inscription() {
       {/* Main content */}
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Inscription d&apos;un employé</h2>
-        <p className="mt-2 text-lg leading-8 text-gray-600">
+        <p className="mt-6 text-md text-justify leading-8 text-gray-600">
           L&apos;inscription permet à l&apos;employé de se connecter et d&apos;accéder aux fonctionnalités telles que l&apos;édition, la modification et la suppression d&apos;article, de note d&apos;information et d&apos;annonces. Cependant, l&apos;administrateur se réserve le droit d&apos;approuver ou de supprimer un utilisateur.
         </p>
       </div>
@@ -97,7 +97,7 @@ export default function Inscription() {
             </div>
           </div>
 
-          <div className="sm:col-span-2">
+          <div className="sm:col-span-2 mb-4">
             <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
               Confirmation du mot de passe
             </label>
