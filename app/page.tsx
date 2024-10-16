@@ -7,23 +7,28 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <div className="items-center text-center justify-center">
-      <h1 className="text-4xl font-extrabold text-center relative inline-block text-black p-3">
+      <h1 className="text-6xl font-extrabold text-center relative inline-block text-blue-900 p-3 mb-4">
         Bienvenue dans notre blog d&apos;entreprise
       </h1>
       <div>
-        <h2 className="text-xl font-extrabold text-center relative inline-block text-black p-3">
-          Vous trouverez infos / articles / petites annonces
+        <h2 className="text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl mb-8">
+          Un site de partage d&apos;infos / d&apos;articles / de petites annonces en interne
         </h2>
       </div>
       <section className="relative h-[400px]"> 
         <Image
           src="/images/133719.jpg"
           alt="personnes travaillant"
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-75"
           fill
         />
       </section>
-      <section className="mt-8 justify-center items-center">
+      <section className="mt-20 justify-center items-center">
+      <div>
+        <h2 className="text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl mb-8">
+         Parcourez nos différentes rubriques
+        </h2>
+      </div>
         <CardHome />
       </section>
       <section className="mt-8 justify-center items-center">
