@@ -66,7 +66,7 @@ export default function Navbar() {
                   <span className="absolute -inset-1.5" />
                  <UserIcon
                     aria-hidden="true"
-                 className="h-8 w-8 rounded-full text-gray-300"
+                 className="h-8 w-8 rounded-full text-blue-300"
                   />
                 </MenuButton>
               </div>
