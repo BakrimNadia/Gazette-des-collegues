@@ -1,5 +1,7 @@
+import newsReducer from './news.reducer';
+
 const reducer = {
- //reducer
+ news: newsReducer,
   };
   
   export default reducer;
