@@ -2,7 +2,7 @@
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { UserIcon } from '@heroicons/react/24/solid'
+import { UserCircleIcon } from '@heroicons/react/24/solid'
 
 
 const navigation = [
@@ -34,9 +34,9 @@ export default function Navbar() {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
               <img
-                alt="Your Company"
-                src="images/favicon.ico"
-                className="h-8 w-auto rounded-full"
+                alt="La Gazette des Collègues"
+                src="images/logoGC.png"
+                className="h-8 w-auto"
               />
             </div>
             <div className="hidden sm:ml-6 sm:block">
@@ -64,9 +64,9 @@ export default function Navbar() {
               <div>
                 <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span className="absolute -inset-1.5" />
-                 <UserIcon
+                 <UserCircleIcon
                     aria-hidden="true"
-                 className="h-8 w-8 rounded-full text-blue-300"
+                 className="h-8 w-8 rounded-full text-white"
                   />
                 </MenuButton>
               </div>
