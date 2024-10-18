@@ -64,11 +64,8 @@ const actionThunkDeleteNews = createAsyncThunk(
   'news/DELETE_NEWS',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState() as RootState;
-    const response = await axiosInstance.delete(
-      `/news/${state.news.news.id}`,
-    );
-    console.log(response.data);
-    return response.data;
+    await axiosInstance.delete(`/news/${state.news.news.id}`);
+    return state.news.news.id;
   }
 );
 

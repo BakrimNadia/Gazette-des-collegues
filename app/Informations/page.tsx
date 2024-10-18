@@ -2,6 +2,7 @@
 
 import CardInformations from "../Components/CardInformations";
 
+
 export default function Informations() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
