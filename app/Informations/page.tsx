@@ -1,9 +1,30 @@
 'use client';
 
+
 import CardInformations from "../Components/CardInformations";
+import { INews } from "@/@types/news";
+import { actionThunkNewsList } from "@/lib/thunks/news.thunk";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useEffect } from "react";
+import Loader from "../Components/Loader";
 
 
 export default function Informations() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(actionThunkNewsList());
+  }, [dispatch]);
+
+  const news: INews[] = useAppSelector((state) => state.news.newsList);
+  console.log(news);
+
+  const isLoading = useAppSelector((state) => state.news.isloading);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div>
@@ -22,7 +43,9 @@ export default function Informations() {
             voluptate veniam voluptates ad exercitationem minima, tempore cupiditate reprehenderit ducimus cumque.</p>
       </div>
       <section className="mt-8 justify-center items-center">
-        <CardInformations />
+      {news.map((newsItem) => {
+        return <CardInformations key={newsItem.id} newItem={newsItem} />;
+      })}
       </section>
     </div>
   );
