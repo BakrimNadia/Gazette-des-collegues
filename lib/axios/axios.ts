@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
   baseURL:
-    'https://localhost/9000/api/v1',
+    'http://localhost/9000/api/v1',
 });
 
 export function addTokenJwtToAxiosInstance(token: string) {
