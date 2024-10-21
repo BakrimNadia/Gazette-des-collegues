@@ -11,8 +11,7 @@ interface CardNewsProps {
 
 export default function CardInformations({ newItem }: CardNewsProps) {
   return (
-    <div className="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-center mx-auto max-w-7xl px-4 mb-8">
-       <Link  href={`/news/${newItem.id}`}>
+       <Link  href={`/news/${newItem.id}`}> 
         <Card shadow="sm" 
         isPressable 
         onPress={() => console.log("item pressed")}>
@@ -35,6 +34,5 @@ export default function CardInformations({ newItem }: CardNewsProps) {
           </CardFooter>
         </Card>
         </Link>
-    </div>
   );
 }

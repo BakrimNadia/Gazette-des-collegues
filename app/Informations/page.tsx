@@ -1,6 +1,5 @@
 'use client';
 
-
 import CardInformations from "../Components/CardInformations";
 import { INews } from "@/@types/news";
 import { actionThunkNewsList } from "@/lib/thunks/news.thunk";
@@ -13,6 +12,7 @@ export default function Informations() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    console.log("Dispatching action to fetch news");
     dispatch(actionThunkNewsList());
   }, [dispatch]);
 
@@ -42,7 +42,7 @@ export default function Informations() {
             Repellat praesentium quod asperiores ipsa necessitatibus laboriosam tenetur dolores deserunt, 
             voluptate veniam voluptates ad exercitationem minima, tempore cupiditate reprehenderit ducimus cumque.</p>
       </div>
-      <section className="mt-8 justify-center items-center">
+      <section className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-center">
       {news.map((newsItem) => {
         return <CardInformations key={newsItem.id} newItem={newsItem} />;
       })}
