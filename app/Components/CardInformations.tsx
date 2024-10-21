@@ -11,7 +11,7 @@ interface CardNewsProps {
 
 export default function CardInformations({ newItem }: CardNewsProps) {
   return (
-       <Link  href={`/news/${newItem.id}`}> 
+       <Link  href={`/Informations/${newItem.id}`}> 
         <Card shadow="sm" 
         isPressable 
         onPress={() => console.log("item pressed")}>

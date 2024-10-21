@@ -1,6 +1,6 @@
 import {Card, CardHeader, CardBody, Image} from "@nextui-org/react";
 
-export default function DetailInformation() {
+export default function Detail() {
   return (
 <div>
     <div className="flex justify-center items-center">
