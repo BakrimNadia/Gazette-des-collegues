@@ -6,7 +6,8 @@
     "axe/forms": [
       "default",
       {
-        "autocomplete-valid": "off"
+        "autocomplete-valid": "off",
+        "label": "off"
       }
     ]
   }

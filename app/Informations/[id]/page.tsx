@@ -51,7 +51,7 @@ export default function DetailInformation() {
               alt={news.title}
               className="object-cover h-[500px] w-[600px] rounded-xl transition-transform duration-500 transform hover:scale-105"
               src={news.picture}
-              width="100%"
+              width={600}
             />
           </CardBody>
         </Card>
