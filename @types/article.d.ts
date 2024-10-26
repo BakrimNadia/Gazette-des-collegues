@@ -5,6 +5,5 @@ export interface IArticle {
     subtitle: string;
     author: string;
     content: string;
-    role: string;
     date_publication: string;
   }
