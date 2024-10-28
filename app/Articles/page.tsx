@@ -1,8 +1,29 @@
 'use client';
 
 import CardArticle from "../Components/CardArticle";
+import { IArticle } from "@/@types/article";
+import { actionThunkArticleList } from "@/lib/thunks/article.thunk";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useEffect } from "react";
+import Loader from "../Components/Loader";
 
 export default function Articles() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    console.log("Dispatching action to fetch article");
+    dispatch(actionThunkArticleList());
+  }, [dispatch]);
+
+  const article: IArticle[] = useAppSelector((state) => state.article.articleList);
+  console.log(article);
+
+  const isLoading = useAppSelector((state) => state.article.isloading);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div>
@@ -20,8 +41,10 @@ export default function Articles() {
             Repellat praesentium quod asperiores ipsa necessitatibus laboriosam tenetur dolores deserunt, 
             voluptate veniam voluptates ad exercitationem minima, tempore cupiditate reprehenderit ducimus cumque.</p>
       </div>
-      <section className="mt-8 w-full">
-        <CardArticle />
+      <section className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-center">
+      {article.map((articleItem) => {
+        return <CardArticle key={articleItem.id} articleItem={articleItem} />;
+      })}
       </section>
     </div>
   );
