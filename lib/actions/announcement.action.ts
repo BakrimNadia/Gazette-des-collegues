@@ -1,0 +1,16 @@
+import { createAction } from '@reduxjs/toolkit';
+
+export const actionSetAnnouncementId = createAction<number>('Announcement/SET_ANNOUNCEMENT_ID');
+
+export const actionSetAnnouncement = createAction<{
+  name:
+    | 'picture'
+    | 'title'
+    | 'subtitle'
+    | 'author'
+    | 'content'
+    | 'date_publication';
+  value: string;
+}>('announcement/SET_ANNOUNCEMENT');
+
+export const actionDeleteAnnouncement = createAction<number>('announcement/DELETE_ANNOUNCEMENT');

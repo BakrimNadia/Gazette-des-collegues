@@ -40,7 +40,7 @@ const actionThunkAddArticle = createAsyncThunk(
   }
 );
 
-// action pour modifier une information
+// action pour modifier un article
 const actionThunkUpdateArticle = createAsyncThunk(
   'article/UPDATE_ARTICLE',
   async (_, thunkAPI) => {

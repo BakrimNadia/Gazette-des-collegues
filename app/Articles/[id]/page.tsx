@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import Loader from '@/app/Components/Loader';
 import { actionSetArticleId } from '@/lib/actions/article.action';
 
-export default function DetailInformation() {
+export default function DetailArticle() {
   const dispatch = useAppDispatch();
 
   const { id } = useParams();
