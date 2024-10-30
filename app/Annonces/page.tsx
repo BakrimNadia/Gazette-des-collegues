@@ -1,8 +1,29 @@
 'use client';
 
 import CardAnnonce from "../Components/CardAnnonce";
+import { IAnnouncement } from "@/@types/announcement";
+import { actionThunkAnnouncementList } from "@/lib/thunks/announcement.thunk";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useEffect } from "react";
+import Loader from "../Components/Loader";
 
 export default function Annonces() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    console.log("Dispatching action to fetch announcement");
+    dispatch(actionThunkAnnouncementList());
+  }, [dispatch]);
+
+  const announcement: IAnnouncement[] = useAppSelector((state) => state.announcement.announcementList);
+  console.log(announcement);
+
+  const isLoading = useAppSelector((state) => state.announcement.isloading);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div>
@@ -20,8 +41,10 @@ export default function Annonces() {
             Repellat praesentium quod asperiores ipsa necessitatibus laboriosam tenetur dolores deserunt, 
             voluptate veniam voluptates ad exercitationem minima, tempore cupiditate reprehenderit ducimus cumque.</p>
       </div>
-      <section className="mt-8 w-full">
-        <CardAnnonce/>
+      <section className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-center">
+      {announcement.map((announcementItem) => {
+        return <CardAnnonce key={announcementItem.id} announcementItem={announcementItem} />;
+      })}
       </section>
     </div>
   );
