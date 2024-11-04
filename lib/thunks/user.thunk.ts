@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import axiosInstance from '../axios/axios';
 import { RootState } from '../store';
-// action pour afficher la liste des employés
+
 const actionThunkUserList = createAsyncThunk('user/GET_USERS', async () => {
   const response = await axiosInstance.get('/users');
   return response.data;

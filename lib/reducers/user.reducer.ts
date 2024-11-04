@@ -31,6 +31,7 @@ const initialState: InitialState = {
     firstname: '',
     password: '',
     role: '',
+    is_active: true,
   },
   confirmPassword: '',
   isloading: true,
@@ -49,12 +50,17 @@ const userReducer = createReducer(initialState, (builder) => {
     .addCase(actionSetConfirmPassword, (state, action) => {
       state.confirmPassword = action.payload;
     })
-    // Get user list
     .addCase(actionThunkUserList.pending, (state) => {
       state.isloading = true;
     })
-    .addCase(actionThunkUserList.fulfilled, (state) => {
+    .addCase(actionThunkUserList.fulfilled, (state, action) => {
       state.isloading = false;
+      state.deletedUsers = action.payload.filter(
+        (user: IUser) => user.is_active === false
+      );
+      state.users = action.payload.filter(
+        (user: IUser) => user.is_active === true
+      );
     })
     .addCase(actionThunkUserList.rejected, (state) => {
       state.isloading = false;
@@ -78,6 +84,7 @@ const userReducer = createReducer(initialState, (builder) => {
         firstname: '',
         password: '',
         role: '',
+        is_active: true,
       };
     });
 });
