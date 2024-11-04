@@ -1,6 +1,29 @@
 'use client';
 
+import { useAppDispatch } from '../../lib/hooks';
+import {
+  actionSetConfirmPassword,
+  actionSetUser,
+} from '../../lib/actions/user.action';
+import { actionRegister } from '../../lib/thunks/auth.thunk';
+import { useState } from 'react';
+
+
 export default function Inscription() {
+  const dispatch = useAppDispatch();
+
+  const roles = [
+    { key: 'Employé', label: 'Employé' },
+    { key: 'Admin', label: 'Admin' },
+  ];
+
+  const [email, setEmail] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [role, setRole] = useState('');
+
   return (
     <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
       {/* Background Gradient */}
@@ -20,7 +43,21 @@ export default function Inscription() {
       </div>
 
       {/* Form */}
-      <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
+      <form action="get" 
+      method="POST" 
+      className="mx-auto mt-16 max-w-xl sm:mt-20"
+      onSubmit={async (e) => {
+        e.preventDefault();
+          dispatch(actionSetUser({ name: 'lastname', value: lastname }));
+          dispatch(actionSetUser({ name: 'firstname', value: firstname }));
+          dispatch(actionSetUser({ name: 'email', value: email }));
+          dispatch(actionSetUser({ name: 'password', value: password }));
+          dispatch(actionSetConfirmPassword(confirmPassword));
+          dispatch(actionSetUser({ name: 'role', value: role }));
+
+          await dispatch(actionRegister());
+        }}
+      >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
@@ -33,7 +70,11 @@ export default function Inscription() {
                 type="text"
                 autoComplete="given-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
+                value={firstname}
+                onChange={(e) => {
+                  setFirstname(e.target.value);
+                }}
+             />
             </div>
           </div>
 
@@ -48,24 +89,38 @@ export default function Inscription() {
                 type="text"
                 autoComplete="family-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
+                value={lastname}
+                onChange={(e) => {
+                  setLastname(e.target.value);
+                }}
+             />
             </div>
           </div>
 
           <div className="sm:col-span-2">
-            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
-              Rôle (employé ou administrateur)
-            </label>
-            <div className="mt-2.5">
-              <input
-                id="company"
-                name="company"
-                type="text"
-                autoComplete="organization"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
+  <label htmlFor="role" className="block text-sm font-semibold leading-6 text-gray-900">
+    Rôle
+  </label>
+  <div className="mt-2.5">
+    <select
+      id="role"
+      name="role"
+      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      value={role}
+      onChange={(e) => {
+        setRole(e.target.value);
+      }}
+    >
+      <option value="" disabled>Choisissez un rôle</option>
+      {roles.map((r) => (
+        <option key={r.key} value={r.key}>
+          {r.label}
+        </option>
+      ))}
+    </select>
+  </div>
+</div>
+
 
           <div className="sm:col-span-2">
             <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
@@ -78,6 +133,10 @@ export default function Inscription() {
                 type="email"
                 autoComplete="email"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
               />
             </div>
           </div>
@@ -93,6 +152,10 @@ export default function Inscription() {
                 type="password"
                 autoComplete="password"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
               />
             </div>
           </div>
@@ -108,6 +171,10 @@ export default function Inscription() {
                 type="password"
                 autoComplete="password"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={confirmPassword}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+              }}
               />
             </div>
           </div>
