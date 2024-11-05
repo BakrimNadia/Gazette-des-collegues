@@ -1,8 +1,11 @@
 'use client';
 
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { UserCircleIcon } from '@heroicons/react/24/solid'
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import { useAppDispatch, useAppSelector } from '../../lib/hooks';
+import { actionLogIn, actionLogOut } from '../../lib/actions/auth.action';
+import { useEffect } from 'react';
+import { getTokenAndPseudoFromLocalStorage } from '@/localStorage/localStorage';
 
 
 const navigation = [
@@ -11,33 +14,49 @@ const navigation = [
   { name: 'Articles', href: '/Articles', current: false },
   { name: 'Petites annonces', href: '/Annonces', current: false },
   { name: 'Contact', href: '/Contact', current: false },
-]
+];
 
+// Fonction utilitaire pour la gestion des classes
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Navbar() {
+  const dispatch = useAppDispatch();
+
+  // Sélection de l'état d'authentification et des informations utilisateur depuis le store Redux
+  const pseudo = useAppSelector((state) => state.auth.pseudo);
+  const avatar = useAppSelector((state) => state.auth.avatar);
+
+   // Initialiser l'état d'authentification au chargement de la navbar
+   useEffect(() => {
+    const { jwt, pseudo, role, avatar } = getTokenAndPseudoFromLocalStorage();
+    dispatch(actionLogIn({ jwt, pseudo, role, avatar })); // Action pour charger l'état à partir de localStorage
+  }, [dispatch]);
+
+  // Fonction pour gérer la déconnexion de l'utilisateur
+  const handleLogout = () => {
+    dispatch(actionLogOut());
+    // Toute logique supplémentaire, par exemple redirection, peut être ajoutée ici
+  };
+
   return (
     <Disclosure as="nav" className="bg-gradient-to-r from-[#2F4F4F] to-[#00008B]">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
+          
+          {/* Bouton pour le menu mobile */}
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* Mobile menu button*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-              <span className="absolute -inset-0.5" />
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" />
-              <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
+            <DisclosureButton className="inline-flex items-center justify-center p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none">
+              <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+              <XMarkIcon className="hidden h-6 w-6" aria-hidden="true" />
             </DisclosureButton>
           </div>
+          
+          {/* Logo et liens de navigation */}
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img
-                alt="La Gazette des Collègues"
-                src="images/logoGC.png"
-                className="h-8 w-auto"
-              />
+              <img src="images/logoGC.png" alt="La Gazette des Collègues" className="h-8 w-auto" />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -45,11 +64,11 @@ export default function Navbar() {
                   <a
                     key={item.name}
                     href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
                     className={classNames(
                       item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                      'rounded-md px-3 py-2 text-sm font-medium',
+                      'rounded-md px-3 py-2 text-sm font-medium'
                     )}
+                    aria-current={item.current ? 'page' : undefined}
                   >
                     {item.name}
                   </a>
@@ -57,39 +76,65 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
-            {/* Profile dropdown */}
+          {/* Bouton utilisateur pour connexion/déconnexion */}
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <Menu as="div" className="relative ml-3">
-              <div>
-                <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                  <span className="absolute -inset-1.5" />
-                 <UserCircleIcon
-                    aria-hidden="true"
-                 className="h-8 w-8 rounded-full text-white"
-                  />
-                </MenuButton>
-              </div>
-              <MenuItems
-                transition
-                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-              >
-                <MenuItem>
-                  <a href="/Connexion" className="block px-4 py-2 text-sm font-bold text-gray-700 data-[focus]:bg-gray-100">
-                    Connexion
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a href="/Inscription" className="block px-4 py-2 text-sm font-bold text-gray-700 data-[focus]:bg-gray-100">
-                    Inscription
-                  </a>
-                </MenuItem>
+              <MenuButton className="flex items-center text-sm focus:outline-none">
+                {/* Afficher l'avatar de l'utilisateur ou une icône par défaut */}
+                {avatar ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={avatar} alt={`${pseudo}'s avatar`} className="h-8 w-8 rounded-full" />
+                ) : (
+                  <div>
+                  <UserCircleIcon className="h-8 w-8 text-white" aria-hidden="true" />
+                  </div>
+                )}
+                {/* Afficher le pseudo de l'utilisateur à côté de l'icône */}
+                {pseudo && (
+                  <span className="ml-2 text-white text-sm">{pseudo}</span>
+                )}
+              </MenuButton>
+              
+              {/* Menu conditionnel en fonction de la présence du pseudo */}
+              <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                {pseudo ? (
+                  <>
+                    <MenuItem>
+                      <span className="block px-4 py-2 text-sm text-gray-700">
+                        {pseudo}
+                      </span>
+                    </MenuItem>
+                    <MenuItem>
+                      <button
+                        onClick={handleLogout}
+                        className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Déconnexion
+                      </button>
+                    </MenuItem>
+                  </>
+                ) : (
+                  <>
+                    <MenuItem>
+                      <a href="/Connexion" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Connexion
+                      </a>
+                    </MenuItem>
+                    <MenuItem>
+                      <a href="/Inscription" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Inscription
+                      </a>
+                    </MenuItem>
+                  </>
+                )}
               </MenuItems>
             </Menu>
           </div>
         </div>
       </div>
 
+      {/* Menu mobile */}
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2">
           {navigation.map((item) => (
@@ -97,10 +142,9 @@ export default function Navbar() {
               key={item.name}
               as="a"
               href={item.href}
-              aria-current={item.current ? 'page' : undefined}
               className={classNames(
                 item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium',
+                'block rounded-md px-3 py-2 text-base font-medium'
               )}
             >
               {item.name}
@@ -109,5 +153,5 @@ export default function Navbar() {
         </div>
       </DisclosurePanel>
     </Disclosure>
-  )
+  );
 }
