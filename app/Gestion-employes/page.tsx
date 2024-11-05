@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Trash, Settings } from 'react-feather';
 
 import { useAppDispatch, useAppSelector } from '../../lib/hooks';
@@ -38,7 +38,7 @@ export default function GestionEmployes() {
       }, [modified, removed]);
 
       const users = useAppSelector((state) => state.user.users);
-      const user = useAppSelector((state) => state.user.user);
+      //const user = useAppSelector((state) => state.user.user);
 
       const isLoading = useAppSelector((state) => state.user.isloading);
 
@@ -75,7 +75,7 @@ export default function GestionEmployes() {
               <td className="px-6 py-4 text-md font-medium flex space-x-3">
                 <button aria-label="Supprimer" 
                 className="text-gray-500 hover:text-red-600"
-                onClick={async (e) => {
+                onClick={async () => {
                     dispatch(
                       actionSetUser({ name: 'email', value: user.email })
                     );
