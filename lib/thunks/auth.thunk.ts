@@ -4,6 +4,7 @@ import { addTokenPseudoAndRoleToLocalStorage } from '../../localStorage/localSto
 
 import axiosInstance, { addTokenJwtToAxiosInstance } from '../axios/axios';
 import { RootState } from '../store';
+import { actionThunkUserList } from './user.thunk';
 
 const actionLoginCheck = createAsyncThunk(
   'login/LOGIN_CHECK',
@@ -39,6 +40,8 @@ const actionRegister = createAsyncThunk(
       role: state.user.user.role,
       is_active: state.user.user.is_active,
     });
+
+    await thunkAPI.dispatch(actionThunkUserList()); 
     return 'succes';
   }
 );

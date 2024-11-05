@@ -55,6 +55,7 @@ const userReducer = createReducer(initialState, (builder) => {
     })
     .addCase(actionThunkUserList.fulfilled, (state, action) => {
       state.isloading = false;
+      console.log("Données des utilisateurs récupérées :", action.payload);
       state.deletedUsers = action.payload.filter(
         (user: IUser) => user.is_active === false
       );

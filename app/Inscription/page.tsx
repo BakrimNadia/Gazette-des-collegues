@@ -43,8 +43,7 @@ export default function Inscription() {
       </div>
 
       {/* Form */}
-      <form action="get" 
-      method="POST" 
+      <form method='post'
       className="mx-auto mt-16 max-w-xl sm:mt-20"
       onSubmit={async (e) => {
         e.preventDefault();
@@ -65,6 +64,7 @@ export default function Inscription() {
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="first-name"
                 name="first-name"
                 type="text"
@@ -84,6 +84,7 @@ export default function Inscription() {
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="last-name"
                 name="last-name"
                 type="text"
@@ -103,6 +104,7 @@ export default function Inscription() {
   </label>
   <div className="mt-2.5">
     <select
+      required
       id="role"
       name="role"
       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -128,6 +130,7 @@ export default function Inscription() {
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="email"
                 name="email"
                 type="email"
@@ -147,6 +150,7 @@ export default function Inscription() {
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="password"
                 name="password"
                 type="password"

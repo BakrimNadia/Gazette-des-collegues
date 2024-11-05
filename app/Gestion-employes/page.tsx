@@ -28,24 +28,25 @@ export default function GestionEmployes() {
         } else {
           console.log('rien dans le localstorage');
         }
-      }, []);
+      }, [dispatch]);
 
       const modified = useAppSelector((state) => state.auth.modified);
       const removed = useAppSelector((state) => state.user.remove);
-    
-      useEffect(() => {
-        dispatch(actionThunkUserList());
-      }, [modified, removed]);
-
       const users = useAppSelector((state) => state.user.users);
       //const user = useAppSelector((state) => state.user.user);
-
       const isLoading = useAppSelector((state) => state.user.isloading);
+      
+      useEffect(() => {
+        dispatch(actionThunkUserList());
+      }, [modified, removed, dispatch]);
+
+
 
       if (isLoading) {
         return <Loader />;
       }
     
+      console.log('Liste des utilisateurs récupérés:', users);
 
   return (
     <div>
