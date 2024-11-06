@@ -1,6 +1,16 @@
 'use client';
 
+import React, { useState } from 'react';
+
 export default function Contact() {
+
+  const [firstnameValue, setFirstnameValue] = useState('');
+  const [lastnameValue, setLastnameValue] = useState('');
+  const [emailValue, setEmailValue] = useState('');
+  const [companyValue, setCompanyValue] = useState('');
+  const [phoneValue, setPhoneValue] = useState('');
+  const [messageValue, setMessageValue] = useState('');
+
   return (
     <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
       {/* Background Gradient */}
@@ -28,11 +38,16 @@ export default function Contact() {
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="first-name"
                 name="first-name"
                 type="text"
                 autoComplete="given-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={firstnameValue}
+                onChange={(e) => {
+                  setFirstnameValue(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -43,11 +58,16 @@ export default function Contact() {
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="last-name"
                 name="last-name"
                 type="text"
                 autoComplete="family-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={lastnameValue}
+                onChange={(e) => {
+                  setLastnameValue(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -63,6 +83,10 @@ export default function Contact() {
                 type="text"
                 autoComplete="organization"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={companyValue}
+                onChange={(e) => {
+                  setCompanyValue(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -73,11 +97,16 @@ export default function Contact() {
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="email"
                 name="email"
                 type="email"
                 autoComplete="email"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={emailValue}
+                onChange={(e) => {
+                  setEmailValue(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -88,11 +117,16 @@ export default function Contact() {
             </label>
             <div className="relative mt-2.5">
               <input
+                required
                 id="phone-number"
                 name="phone-number"
                 type="tel"
                 autoComplete="tel"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={phoneValue}
+                onChange={(e) => {
+                  setPhoneValue(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -103,11 +137,16 @@ export default function Contact() {
             </label>
             <div className="mt-2.5">
               <textarea
+                required
                 id="message"
                 name="message"
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 defaultValue={''}
+                value={messageValue}
+                onChange={(e) => {
+                  setMessageValue(e.target.value);
+                }}
               />
             </div>
           </div>
