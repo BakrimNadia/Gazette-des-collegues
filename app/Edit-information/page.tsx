@@ -1,8 +1,33 @@
 'use client';
 
+import { useAppDispatch } from '../../lib/hooks';
+import { useState } from 'react';
+import { actionSetNews } from '../../lib/actions/news.action';
+import { actionThunkAddNews } from '../../lib/thunks/news.thunk';
+
 import ModalContitions from "../Components/ModalConditions";
 
+
 export default function EditInformation() {
+
+  const dispatch = useAppDispatch();
+
+  const [picture, setPicture] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [title, setTitle] = useState('');
+  const [subtitle, setSubtitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [content, setContent] = useState('');
+  const [datePublication, setdatePublication] = useState('');
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setSelectedFile(file);
+    setPicture(file ? URL.createObjectURL(file) : ''); // Génère une URL de prévisualisation pour l'image
+  };
+  
+
   return (
     <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
       {/* Background Gradient */}
@@ -23,7 +48,21 @@ export default function EditInformation() {
       </div>
 
       {/* Form */}
-      <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
+      <form action="#" 
+      method="POST" 
+      className="mx-auto mt-16 max-w-xl sm:mt-20"
+      onSubmit={async (e) => {
+        e.preventDefault();
+          dispatch(actionSetNews({ name: 'picture', value: picture }));
+          dispatch(actionSetNews({ name: 'title', value: title }));
+          dispatch(actionSetNews({ name: 'subtitle', value: subtitle }));
+          dispatch(actionSetNews({ name: 'author', value: author }));
+          dispatch(actionSetNews({ name: 'content', value: content }));
+          dispatch(actionSetNews({ name: 'date_publication', value: datePublication }));
+
+          await dispatch(actionThunkAddNews());
+        }}
+      >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
  
         <div className="sm:col-span-2">
@@ -37,7 +76,9 @@ export default function EditInformation() {
         type="file"
         accept="image/*" 
         className="block w-full text-sm text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-50 file:text-indigo-600 hover:file:bg-gray-100"
-      />
+        onChange={handleFileChange}
+        />
+       {picture && <img src={picture} alt="Prévisualisation" className="mt-4 w-full h-auto rounded-lg" />}
     </div>
   </div>
 
@@ -47,11 +88,16 @@ export default function EditInformation() {
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="title"
                 name="title"
                 type="text"
                 autoComplete="organization"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -62,11 +108,16 @@ export default function EditInformation() {
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="subtitle"
                 name="subtitle"
                 type="text"
                 autoComplete="organization"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={subtitle}
+                onChange={(e) => {
+                  setSubtitle(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -77,11 +128,16 @@ export default function EditInformation() {
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="author"
                 name="author"
                 type="text"
                 autoComplete="email"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={author}
+                onChange={(e) => {
+                  setAuthor(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -92,10 +148,15 @@ export default function EditInformation() {
             </label>
             <div className="relative mt-2.5">
               <input
-                id="date"
-                name="date"
-                type="date"
+                required
+                id="datePiblication"
+                name="datePublication"
+                type="datePublication"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={datePublication}
+                onChange={(e) => {
+                  setdatePublication(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -106,11 +167,16 @@ export default function EditInformation() {
             </label>
             <div className="mt-2.5">
               <textarea
+                required
                 id="message"
                 name="message"
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 defaultValue={''}
+                value={content}
+                onChange={(e) => {
+                  setContent(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -128,3 +194,4 @@ export default function EditInformation() {
     </div>
   );
 }
+
