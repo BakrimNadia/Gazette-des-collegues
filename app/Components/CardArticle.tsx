@@ -12,7 +12,7 @@ interface CardArticleProps {
 export default function CardArticle({articleItem}: CardArticleProps) {
   return (
     <Link  href={`/Articles/${articleItem.id}`}> 
-    <Card shadow="sm" 
+    <Card className="mx-2"  shadow="sm" 
     isPressable 
     onPress={() => console.log("item pressed")}>
       <CardBody className="overflow-visible p-0">
@@ -21,7 +21,7 @@ export default function CardArticle({articleItem}: CardArticleProps) {
           radius="lg"
           width="100%"
           alt={articleItem.title}
-          className="w-full object-cover h-[350px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
+          className="w-full object-cover h-[450px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
           src={articleItem.picture}
         />
       </CardBody>

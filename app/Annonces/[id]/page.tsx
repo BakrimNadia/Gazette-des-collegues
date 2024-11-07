@@ -37,13 +37,13 @@ export default function DetailAnnouncement() {
   }
 
   return (
-    <div>
-      <div className="flex justify-center items-center">
+    <div className="flex flex-col md:flex-row md:space-x-8 px-4 mb-10 md:px-8">
+      <div className="md:w-2/3">
         <Card className="py-4 border-none shadow-none"
      isPressable 
      onPress={() => console.log("item pressed")}>   
           <CardHeader className="mt-4 mb-4 pb-0 pt-2 px-4 flex-col items-center">
-            <h4 className="font-bold text-3xl">{announcement.title}</h4>
+            <h4 className="font-bold text-3xl mb-2">{announcement.title}</h4>
             <small className="text-default-500 font-bold">{announcement.author}</small>
           </CardHeader>
           <CardBody className="overflow-visible py-2">
@@ -56,9 +56,9 @@ export default function DetailAnnouncement() {
           </CardBody>
         </Card>
       </div>
-      <div className="mt-8 mb-10 mx-8 text-justify">
-        <h4 className="font-bold text-center text-xl mb-6">{announcement.subtitle}</h4>
-        <p>{announcement.content}</p>
+      <div className="md:w-1/3 flex flex-col justify-center text-justify mt-8 mb-8">
+        <h4 className=" font-bold text-xl mb-6 sm:justify-center">{announcement.subtitle}</h4>
+        <p className="mb-6">{announcement.content}</p>
         <small>publié le {announcement.date_publication}</small>
       </div>
     </div>
