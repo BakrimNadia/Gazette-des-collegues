@@ -37,7 +37,7 @@ export default function DetailAnnouncement() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row md:space-x-8 px-4 mb-10 md:px-8">
+    <div className="flex flex-col md:flex-row md:space-x-2 px-2 mb-10 md:px-8">
       <div className="md:w-2/3">
         <Card className="py-4 border-none shadow-none"
      isPressable 
@@ -56,7 +56,7 @@ export default function DetailAnnouncement() {
           </CardBody>
         </Card>
       </div>
-      <div className="md:w-1/3 flex flex-col justify-center text-justify mt-8 mb-8">
+      <div className="md:w-1/3 flex flex-col justify-center item-center text-justify mt-8 mb-8">
         <h4 className=" font-bold text-xl mb-6 sm:justify-center">{announcement.subtitle}</h4>
         <p className="mb-6">{announcement.content}</p>
         <small>publié le {announcement.date_publication}</small>
