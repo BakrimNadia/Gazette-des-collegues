@@ -32,7 +32,7 @@ const actionThunkAddNews = createAsyncThunk(
     await axiosInstance.post('/news', {
       title: state.news.news.title,
       subtitle: state.news.news.subtitle,
-      author: state.news.news.author,
+      user_id: state.news.news.user_id,
       content: state.news.news.content,
       date_publication: state.news.news.date_publication,
     });
@@ -50,7 +50,7 @@ const actionThunkUpdateNews = createAsyncThunk(
       {
         title: state.news.news.title,
         subtitle: state.news.news.subtitle,
-        author: state.news.news.author,
+        user_id: state.news.news.user_id,
         content: state.news.news.content,
         date_publication: state.news.news.date_publication,
       }

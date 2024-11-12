@@ -28,7 +28,7 @@ const initialState: InitialState = {
     picture: '',
     title: '',
     subtitle: '',
-    author: '',
+    user_id: '',
     content: '',
     date_publication: '',
   },
@@ -86,7 +86,7 @@ const newsReducer = createReducer(initialState, (builder) => {
         picture: '',
         title: '',
         subtitle: '',
-        author: '',
+        user_id: '',
         content: '',
         date_publication: '',
       };
@@ -108,7 +108,7 @@ const newsReducer = createReducer(initialState, (builder) => {
         picture: '',
         title: '',
         subtitle: '',
-        author: '',
+        user_id: '',
         content: '',
         date_publication: '',
       };

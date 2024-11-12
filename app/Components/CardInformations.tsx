@@ -13,7 +13,7 @@ export default function CardInformations({ newItem }: CardNewsProps) {
   return (
        <Link  href={`/Informations/${newItem.id}`}> 
         <Card shadow="sm"
-        className="mx-3" 
+        className="mx-2" 
         isPressable 
         onPress={() => console.log("item pressed")}>
           <CardBody className="overflow-visible p-0">
@@ -22,7 +22,7 @@ export default function CardInformations({ newItem }: CardNewsProps) {
               radius="lg"
               width="100%"
               alt={newItem.title}
-              className="w-full object-cover h-[500px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
+              className="w-full object-cover h-[450px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
               src={newItem.picture}
             />
           </CardBody>

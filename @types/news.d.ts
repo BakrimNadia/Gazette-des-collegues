@@ -3,7 +3,7 @@ export interface INews {
     picture?: string;
     title: string;
     subtitle: string;
-    author: string;
+    user_id: string;
     content: string;
     date_publication: string;
   }

@@ -44,7 +44,7 @@ export default function DetailInformation() {
      onPress={() => console.log("item pressed")}>   
           <CardHeader className="mt-4 mb-4 pb-0 pt-2 px-4 flex-col items-center">
             <h4 className="font-bold text-3xl">{news.title}</h4>
-            <small className="text-default-500 font-bold">{news.author}</small>
+            <small className="text-default-500 font-bold">{news.user_id}</small>
           </CardHeader>
           <CardBody className="overflow-visible py-2">
             <Image

@@ -1,7 +1,7 @@
 'use client';
 
-import { useAppDispatch } from '../../lib/hooks';
-import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../lib/hooks';
+import { useEffect, useState } from 'react';
 import { actionSetNews } from '../../lib/actions/news.action';
 import { actionThunkAddNews } from '../../lib/thunks/news.thunk';
 
@@ -12,6 +12,8 @@ export default function EditInformation() {
 
   const dispatch = useAppDispatch();
 
+  const { firstname, lastname } = useAppSelector((state) => state.user.user);
+
   const [picture, setPicture] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -20,6 +22,12 @@ export default function EditInformation() {
   const [author, setAuthor] = useState('');
   const [content, setContent] = useState('');
   const [datePublication, setdatePublication] = useState('');
+
+  useEffect(() => {
+    if (firstname && lastname) {
+      setAuthor(`${firstname} ${lastname}`);
+    }
+  }, [firstname, lastname]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
@@ -56,7 +64,7 @@ export default function EditInformation() {
           dispatch(actionSetNews({ name: 'picture', value: picture }));
           dispatch(actionSetNews({ name: 'title', value: title }));
           dispatch(actionSetNews({ name: 'subtitle', value: subtitle }));
-          dispatch(actionSetNews({ name: 'author', value: author }));
+          dispatch(actionSetNews({ name: 'user_id', value: author }));
           dispatch(actionSetNews({ name: 'content', value: content }));
           dispatch(actionSetNews({ name: 'date_publication', value: datePublication }));
 

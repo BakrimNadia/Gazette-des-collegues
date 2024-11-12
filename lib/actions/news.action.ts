@@ -7,7 +7,7 @@ export const actionSetNews = createAction<{
     | 'picture'
     | 'title'
     | 'subtitle'
-    | 'author'
+    | 'user_id'
     | 'content'
     | 'date_publication';
   value: string;
