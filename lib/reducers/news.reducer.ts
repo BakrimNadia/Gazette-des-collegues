@@ -12,6 +12,7 @@ import {
 
 // -- LE STATE INITIAL
 interface InitialState {
+  newsAuthor: any;
   newsList: INews[];
   news: INews;
   isloading: boolean;

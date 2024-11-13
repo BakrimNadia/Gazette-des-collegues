@@ -1,7 +1,7 @@
 'use client';
 
 import { useAppDispatch, useAppSelector } from '../../lib/hooks';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { actionSetNews } from '../../lib/actions/news.action';
 import { actionThunkAddNews } from '../../lib/thunks/news.thunk';
 
@@ -12,22 +12,21 @@ export default function EditInformation() {
 
   const dispatch = useAppDispatch();
 
-  const { firstname, lastname } = useAppSelector((state) => state.user.user);
+  const user = useAppSelector((state) => state.user.user);
+  const newsAuthor = useAppSelector((state) => state.news.newsAuthor);
 
   const [picture, setPicture] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [title, setTitle] = useState('');
   const [subtitle, setSubtitle] = useState('');
-  const [author, setAuthor] = useState('');
   const [content, setContent] = useState('');
   const [datePublication, setdatePublication] = useState('');
+  const [userId, setUserId] = useState('');
+  
+  
 
-  useEffect(() => {
-    if (firstname && lastname) {
-      setAuthor(`${firstname} ${lastname}`);
-    }
-  }, [firstname, lastname]);
+
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
@@ -64,9 +63,12 @@ export default function EditInformation() {
           dispatch(actionSetNews({ name: 'picture', value: picture }));
           dispatch(actionSetNews({ name: 'title', value: title }));
           dispatch(actionSetNews({ name: 'subtitle', value: subtitle }));
-          dispatch(actionSetNews({ name: 'user_id', value: author }));
           dispatch(actionSetNews({ name: 'content', value: content }));
           dispatch(actionSetNews({ name: 'date_publication', value: datePublication }));
+          dispatch(actionSetNews({
+            name: 'user_id',
+            value: user ? `${newsAuthor.firstname} ${newsAuthor.lastname}` : ''
+          }));
 
           await dispatch(actionThunkAddNews());
         }}
@@ -91,7 +93,7 @@ export default function EditInformation() {
   </div>
 
           <div className="sm:col-span-2">
-            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="title" className="block text-sm font-semibold leading-6 text-gray-900">
               Titre de l&apos;article
             </label>
             <div className="mt-2.5">
@@ -100,7 +102,7 @@ export default function EditInformation() {
                 id="title"
                 name="title"
                 type="text"
-                autoComplete="organization"
+                autoComplete="title"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 value={title}
                 onChange={(e) => {
@@ -131,22 +133,20 @@ export default function EditInformation() {
           </div>
 
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="author" className="block text-sm font-semibold leading-6 text-gray-900">
               Auteur
             </label>
             <div className="mt-2.5">
               <input
-                required
+                readOnly
                 id="author"
                 name="author"
                 type="text"
-                autoComplete="email"
+                autoComplete="author"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                value={author}
-                onChange={(e) => {
-                  setAuthor(e.target.value);
-                }}
-              />
+                value={userId}
+
+                />
             </div>
           </div>
 
@@ -180,7 +180,6 @@ export default function EditInformation() {
                 name="message"
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                defaultValue={''}
                 value={content}
                 onChange={(e) => {
                   setContent(e.target.value);
