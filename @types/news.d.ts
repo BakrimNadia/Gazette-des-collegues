@@ -6,4 +6,8 @@ export interface INews {
     user_id: string;
     content: string;
     date_publication: string;
+    newsAuthor: {
+      firstname: string,
+      lastname: string,
+    }
   }
