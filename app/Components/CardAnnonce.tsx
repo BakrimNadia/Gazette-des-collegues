@@ -28,7 +28,7 @@ export default function CardAnnonce({announcementItem}: CardAnnonceProps) {
           <CardFooter className="text-small flex flex-col items-start">
             <b className="mb-1">{announcementItem.title}</b>
             <div className="flex justify-between w-full mt-">
-              <p className="text-small justify-left">{announcementItem.subtitle}</p>
+              <p className="text-small justify-left">{announcementItem.price}</p>
               <p className="text-default-500">Voir l&apos;annonce...</p>
             </div>
           </CardFooter>

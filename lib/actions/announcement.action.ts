@@ -6,7 +6,7 @@ export const actionSetAnnouncement = createAction<{
   name:
     | 'picture'
     | 'title'
-    | 'subtitle'
+    | 'price'
     | 'author'
     | 'content'
     | 'date_publication';

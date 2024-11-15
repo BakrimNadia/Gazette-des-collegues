@@ -31,7 +31,7 @@ const actionThunkAddAnnouncement = createAsyncThunk(
     const state = thunkAPI.getState() as RootState;
     await axiosInstance.post('/announcement', {
       title: state.announcement.announcement.title,
-      subtitle: state.announcement.announcement.subtitle,
+      price: state.announcement.announcement.price,
       author: state.announcement.announcement.author,
       content: state.announcement.announcement.content,
       date_publication: state.announcement.announcement.date_publication,
@@ -49,7 +49,7 @@ const actionThunkUpdateAnnouncement = createAsyncThunk(
       `/announcement/${state.announcement.announcement.id}`,
       {
         title: state.announcement.announcement.title,
-        subtitle: state.announcement.announcement.subtitle,
+        price: state.announcement.announcement.price,
         author: state.announcement.announcement.author,
         content: state.announcement.announcement.content,
         date_publication: state.announcement.announcement.date_publication,

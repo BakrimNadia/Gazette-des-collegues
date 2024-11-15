@@ -57,7 +57,7 @@ export default function DetailAnnouncement() {
         </Card>
       </div>
       <div className="md:w-1/3 flex flex-col justify-center item-center text-justify mt-8 mb-8">
-        <h4 className=" font-bold text-xl mb-6 sm:justify-center">{announcement.subtitle}</h4>
+        <h4 className=" text-center font-bold text-xl mb-6 sm:justify-center">{announcement.price}</h4>
         <p className="mb-6">{announcement.content}</p>
         <small>publié le {announcement.date_publication}</small>
       </div>
