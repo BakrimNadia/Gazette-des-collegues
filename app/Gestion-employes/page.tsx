@@ -51,13 +51,13 @@ export default function GestionEmployes() {
   return (
     <div>
       <div>
-        <h1 className="text-3xl font-bold text-center mt-5">Gestion des employés</h1>
-        <h2 className="text-center font-bold mt-5">Liste des inscrits</h2>
+        <h1 className="text-3xl text-gray-600 font-bold text-center mt-5">Gestion des employés</h1>
+        <h2 className="text-center text-gray-600 font-bold mt-5">Liste des inscrits</h2>
       </div>
 
       <div className="border border-gray-300 rounded-lg shadow-md mt-5 mx-10 overflow-hidden">
         <table className="min-w-full divide-y divide-gray-300 ">
-          <thead className="bg-indigo-700">
+          <thead className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9]">
             <tr>
               <th className="px-6 py-3 text-left text-md font-medium text-white uppercase">Nom</th>
               <th className="px-6 py-3 text-left text-md font-medium text-white uppercase">Prénom</th>
@@ -68,7 +68,7 @@ export default function GestionEmployes() {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
           {users.map((user) => (
-            <tr key={user.email} className="hover:bg-indigo-200">
+            <tr key={user.email} className="hover:bg-gray-300">
               <td className="px-6 py-4 text-md font-medium">{user.firstname}</td>
               <td className="px-6 py-4 text-md font-medium">{user.lastname}</td>
               <td className="px-6 py-4 text-md font-medium">{user.email}</td>
@@ -99,7 +99,7 @@ export default function GestionEmployes() {
         <Link href={'/Inscription'}>
         <button
           type="submit"
-          className="block mx-auto rounded-md bg-gradient-to-r from-[#2F4F4F] to-[#00008B] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="block mx-auto rounded-md bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           Ajouter un employé
         </button>

@@ -98,12 +98,11 @@ export default function Connexion() {
             </div>
           </div>
 
-          <div className="login-options">
-            <div className="form-group-checkbox">
+          <div className="checkbox">
+            <div className="mb-2">
               <Checkbox
                 type="checkbox"
-                className="checkbox-input"
-                id="checkbox-login-form"
+                className="checked:bg-gray-500"
                 checked={checkboxInput}
                 onChange={() => setCheckboxInput(!checkboxInput)}
               />

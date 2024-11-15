@@ -27,7 +27,7 @@ export default function Annonces() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div>
-        <h1 className="text-4xl font-extrabold text-center relative inline-block text-black p-3">
+        <h1 className="text-4xl font-extrabold text-center relative inline-block text-gray-700 mt-3 p-3">
           Nos Petites annonces
         </h1>
       </div>
@@ -41,7 +41,7 @@ export default function Annonces() {
             Repellat praesentium quod asperiores ipsa necessitatibus laboriosam tenetur dolores deserunt, 
             voluptate veniam voluptates ad exercitationem minima, tempore cupiditate reprehenderit ducimus cumque.</p>
       </div>
-      <section className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-center">
+      <section className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-center mx-2">
       {announcement.map((announcementItem) => {
         return <CardAnnonce key={announcementItem.id} announcementItem={announcementItem} />;
       })}
