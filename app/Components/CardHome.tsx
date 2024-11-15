@@ -5,14 +5,14 @@ import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
 export default function CardHome() {
   const list = [
     {
-      title: "Consultez les notes d'informations",
+      title: "Consultez les informations internes",
       img: "images/building2.jpeg",
       subtitle: "Accédez",
-      link: "/Informations", // Lien ajouté
+      link: "/Informations", 
     },
     {
       title: "Lisez nos articles d'actualité",
-      img: "/images/healthy.jpeg",
+      img: "images/voiture-electrique.jpeg",
       subtitle: "Accédez",
       link: "/Articles", 
     },
@@ -31,7 +31,7 @@ export default function CardHome() {
   ];
 
   return (
-    <div className="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-center mx-auto max-w-7xl px-4">
+    <div className="gap-x-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 justify-center items-center mx-auto max-w-7xl px-2">
       {list.map((item, index) => (
         <a href={item.link} key={index} className="w-full flex justify-center"> 
           <Card shadow="sm" isPressable onPress={() => console.log("item pressed")} className="max-w-sm">
@@ -41,7 +41,7 @@ export default function CardHome() {
                 radius="lg"
                 width="100%"
                 alt={item.title}
-                className="w-full object-cover h-[350px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
+                className="w-full object-cover h-[350px] w-[600px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
                 src={item.img}
               />
             </CardBody>

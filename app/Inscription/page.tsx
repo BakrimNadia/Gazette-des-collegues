@@ -36,7 +36,7 @@ export default function Inscription() {
 
       {/* Main content */}
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Inscription d&apos;un employé</h2>
+        <h2 className="text-3xl font-bold tracking-tight text-gray-600 sm:text-4xl">Inscription d&apos;un employé</h2>
         <p className="mt-6 text-md text-justify leading-8 text-gray-600">
           L&apos;inscription permet à l&apos;employé de se connecter et d&apos;accéder aux fonctionnalités telles que l&apos;édition, la modification et la suppression d&apos;article, de note d&apos;information et d&apos;annonces. Cependant, l&apos;administrateur se réserve le droit d&apos;approuver ou de supprimer un utilisateur.
         </p>
@@ -187,7 +187,7 @@ export default function Inscription() {
         <div className="mt-10">
           <button
             type="submit"
-            className="block w-full rounded-md bg-gradient-to-r from-[#2F4F4F] to-[#00008B] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="block w-full rounded-md bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Envoyer
           </button>

@@ -10,7 +10,7 @@ import { getTokenAndPseudoFromLocalStorage } from '@/localStorage/localStorage';
 
 const navigation = [
   { name: 'Accueil', href: '/', current: false },
-  { name: 'Notes / Informations', href: '/Informations', current: false },
+  { name: 'Notes / Infos', href: '/Informations', current: false },
   { name: 'Articles', href: '/Articles', current: false },
   { name: 'Petites annonces', href: '/Annonces', current: false },
   { name: 'Contact', href: '/Contact', current: false },
@@ -41,7 +41,7 @@ export default function Navbar() {
   };
 
   return (
-    <Disclosure as="nav" className="bg-gradient-to-r from-[#2F4F4F] to-[#00008B]">
+    <Disclosure as="nav" className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9]">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           
@@ -56,7 +56,7 @@ export default function Navbar() {
           {/* Logo et liens de navigation */}
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img src="images/logoGC.png" alt="Logo" className="h-8 w-auto" />
+              <img src="https://www.image-heberg.fr/files/17316693161300500904.png" alt="Logo" className="h-8 w-auto" />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -65,7 +65,7 @@ export default function Navbar() {
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-400 hover:text-white',
                       'rounded-md px-3 py-2 text-sm font-medium'
                     )}
                     aria-current={item.current ? 'page' : undefined}
