@@ -8,6 +8,7 @@ import {
 import {
   actionSetConfirmPassword,
   actionSetUser,
+  actionSetUserFromLogin,
   actionSetUserId,
 } from '../actions/user.action';
 
@@ -76,6 +77,18 @@ const userReducer = createReducer(initialState, (builder) => {
     .addCase(actionThunkUserById.rejected, (state) => {
       state.isloading = false;
     })
+    .addCase(actionSetUserFromLogin, (state, action) => {
+  state.user = {
+    ...state.user,
+    id: action.payload.id,
+    email: action.payload.email,
+    lastname: action.payload.lastname,
+    firstname: action.payload.firstname,
+    role: action.payload.role,
+    is_active: true, 
+  };
+})
+
     .addCase(actionUserSoftDelete.fulfilled, (state) => {
       state.remove = true;
       state.user = {

@@ -12,7 +12,6 @@ import {
 
 // -- LE STATE INITIAL
 interface InitialState {
-  newsAuthor: any;
   newsList: INews[];
   news: INews;
   isloading: boolean;
@@ -29,7 +28,7 @@ const initialState: InitialState = {
     picture: '',
     title: '',
     subtitle: '',
-    user_id: '',
+    newsAuthor: { firstname: '', lastname: '' },
     content: '',
     date_publication: '',
   },
@@ -44,7 +43,9 @@ const newsReducer = createReducer(initialState, (builder) => {
   builder
     // Set news data (used to update specific fields in the news object)
     .addCase(actionSetNews, (state, action) => {
-      state.news[action.payload.name] = action.payload.value;
+      if (action.payload.name in state.news) {
+        (state.news as Record<string, unknown>)[action.payload.name] = action.payload.value;
+      }
     })
     // Set news ID (for retrieving or deleting a specific news item)
     .addCase(actionSetNewsId, (state, action) => {
@@ -87,7 +88,7 @@ const newsReducer = createReducer(initialState, (builder) => {
         picture: '',
         title: '',
         subtitle: '',
-        user_id: '',
+        newsAuthor: { firstname: '', lastname: '' },
         content: '',
         date_publication: '',
       };
@@ -109,7 +110,7 @@ const newsReducer = createReducer(initialState, (builder) => {
         picture: '',
         title: '',
         subtitle: '',
-        user_id: '',
+        newsAuthor: { firstname: '', lastname: '' },
         content: '',
         date_publication: '',
       };

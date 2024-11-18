@@ -5,6 +5,7 @@ import { addTokenPseudoAndRoleToLocalStorage } from '../../localStorage/localSto
 import axiosInstance, { addTokenJwtToAxiosInstance } from '../axios/axios';
 import { RootState } from '../store';
 import { actionThunkUserList } from './user.thunk';
+import { actionSetUserFromLogin } from '../actions/user.action';
 
 const actionLoginCheck = createAsyncThunk(
   'login/LOGIN_CHECK',
@@ -14,7 +15,7 @@ const actionLoginCheck = createAsyncThunk(
       email: state.auth.credentials.email,
       password: state.auth.credentials.password,
     });
-    const { token, avatar, lastname, firstname, role } = response.data;
+    const { token, avatar, lastname, firstname, role, id, email } = response.data;
 
     const pseudo = firstname + ' ' + lastname;
 
@@ -22,10 +23,16 @@ const actionLoginCheck = createAsyncThunk(
     if (state.auth.remember) {
       addTokenPseudoAndRoleToLocalStorage(token, pseudo, role, avatar);
     }
-    
+
+   thunkAPI.dispatch(
+  actionSetUserFromLogin({ id, email, lastname, firstname, role })
+); 
     return { token, pseudo, role, avatar };
   }
 );
+
+
+
 
 const actionRegister = createAsyncThunk(
   'login/REGISTER',
