@@ -30,6 +30,7 @@ const actionThunkAddNews = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState() as RootState;
     await axiosInstance.post('/news', {
+      picture: state.news.news.picture,
       title: state.news.news.title,
       subtitle: state.news.news.subtitle,
       content: state.news.news.content,
@@ -48,6 +49,7 @@ const actionThunkUpdateNews = createAsyncThunk(
     const response = await axiosInstance.patch(
       `/news/${state.news.news.id}`,
       {
+        picture: state.news.news.picture,
         title: state.news.news.title,
         subtitle: state.news.news.subtitle,
         content: state.news.news.content,
