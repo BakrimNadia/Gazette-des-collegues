@@ -13,6 +13,7 @@ export default function EditInformation() {
   const dispatch = useAppDispatch();
 
   const user = useAppSelector((state) => state.user.user);
+  const pseudo = useAppSelector((state) => state.auth.pseudo);
 
   const [picture, setPicture] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -25,11 +26,11 @@ export default function EditInformation() {
   const [lastName, setLastName] = useState('');
   
   useEffect(() => {
-    if (user) {
+    if (pseudo) {
       setFirstName(user.firstname || '');
       setLastName(user.lastname || '');
     }
-  }, [user]);
+  }, [user, pseudo]);
   
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -89,7 +90,7 @@ export default function EditInformation() {
         className="block w-full text-sm text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-50 file:text-indigo-600 hover:file:bg-gray-100"
         onChange={handleFileChange}
         />
-       {picture && <img src={picture} alt="Prévisualisation" className="mt-4 w-full h-auto rounded-lg" />}
+       {picture && <img src={picture} alt="Prévisualisation" />}
     </div>
   </div>
 

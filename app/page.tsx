@@ -32,11 +32,11 @@ export default function Home() {
           Un site de partage d&apos;infos / d&apos;articles / de petites annonces en interne
         </h2>
       </div>
-      <section className="relative h-[400px]"> 
+      <section className="relative h-[600px]"> 
         <Image
-          src="/images/133719.jpg"
+          src="/images/collegues-gazette.png"
           alt="personnes travaillant"
-          className="absolute top-0 left-0 w-full h-full object-cover opacity-75"
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-80"
           fill
         />
       </section>
@@ -58,7 +58,7 @@ export default function Home() {
           Pour partager une annonces, il suffit de nous contacter via le formulaire de contact. <br />
         </p>
         </div>
-      <div className="flex gap-4 justify-center items-center mb-8">
+      <div className="flex gap-4 justify-center items-center mb-10">
       <Avatar isBordered src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
       <Avatar isBordered src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
       <Avatar isBordered src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />

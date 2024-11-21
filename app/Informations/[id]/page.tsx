@@ -4,10 +4,10 @@ import { useParams } from 'next/navigation';
 import { Card, CardHeader, CardBody, Image } from '@nextui-org/react';
 import { useEffect } from 'react';
 import { INews } from '@/@types/news';
-import { actionThunkNewsById } from '@/lib/thunks/news.thunk';
+import { actionThunkNewsById, actionThunkNewsList, actionThunkDeleteNews } from '@/lib/thunks/news.thunk';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import Loader from '@/app/Components/Loader';
-import { actionSetNewsId } from '@/lib/actions/news.action';
+import { actionSetNews, actionSetNewsId } from '@/lib/actions/news.action';
 
 export default function DetailInformation() {
   const dispatch = useAppDispatch();
@@ -25,8 +25,16 @@ export default function DetailInformation() {
         await dispatch(actionThunkNewsById());
     }
 
+
+  const modified = useAppSelector((state) => state.news.modified);
+  const removed = useAppSelector((state) => state.news.remove);
   const news: INews = useAppSelector((state) => state.news.news);
   const isLoading = useAppSelector((state) => state.news.isloading);
+
+  useEffect(() => {
+    dispatch(actionThunkNewsList());
+  }, [modified, removed, dispatch]);
+
 
   if (isLoading) {
     return <Loader />;
@@ -62,6 +70,18 @@ export default function DetailInformation() {
         <h4 className="font-bold text-center text-xl mb-6">{news.subtitle}</h4>
         <p>{news.content}</p>
         <small>publié le {news.date_publication}</small>
+      </div>
+      <div className="text-center mb-10">
+        <button className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] text-white font-bold px-4 py-2 rounded-md mx-5">Modifier</button>
+        <button 
+        className="bg-gradient-to-r from-red-500 to-[#A9A9A9] text-white font-bold px-4 py-2 rounded-md mx-5"
+        onClick={async () => {
+          dispatch(
+            actionSetNews({ name: 'title', value: news.title })
+          );
+          await dispatch(actionThunkDeleteNews());
+        }}
+        >supprimer</button>
       </div>
     </div>
   );
