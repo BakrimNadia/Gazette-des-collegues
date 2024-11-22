@@ -9,7 +9,8 @@ export const actionSetNews = createAction<{
     | 'subtitle'
     | 'content'
     | 'newsAuthor'
-    | 'date_publication';
+    | 'date_publication'
+    | 'user_id';
   value: string;
 }>('news/SET_NEWS');
 
