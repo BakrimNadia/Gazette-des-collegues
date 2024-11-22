@@ -38,6 +38,12 @@ export default function EditInformation() {
     setSelectedFile(file);
     setPicture(file ? URL.createObjectURL(file) : 'https://www.image-heberg.fr/files/17321854994127176357.jpg'); // Génère une URL de prévisualisation pour l'image
   };
+
+  useEffect(() => {
+    if (users) {
+      setAuthors(`${users[0].firstname} ${users[0].lastname}`);
+    }
+  }, [users]);
   
 
   return (
@@ -154,7 +160,7 @@ export default function EditInformation() {
         setAuthors(e.target.value);
       }}
     >
-      <option value="" disabled>Choisissez un auteur</option>
+      <option value={authors} disabled>Choisissez un auteur</option>
       {users.map((user) => (
             <option key={user.id} value={`${user.firstname} ${user.lastname}`}>
               {user.firstname} {user.lastname}

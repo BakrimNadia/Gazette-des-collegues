@@ -36,6 +36,7 @@ const actionThunkAddNews = createAsyncThunk(
       content: state.news.news.content,
       newsAuthor: state.news.news.newsAuthor,
       date_publication: state.news.news.date_publication,
+      user_id: state.news.news.user_id,
     });
     return 'add succesfull';
   }
@@ -55,6 +56,7 @@ const actionThunkUpdateNews = createAsyncThunk(
         content: state.news.news.content,
         newsAuthor: state.news.news.newsAuthor,
         date_publication: state.news.news.date_publication,
+        user_id: state.news.news.user_id,
       }
     );
     console.log(response.data);

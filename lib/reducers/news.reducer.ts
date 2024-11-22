@@ -31,6 +31,7 @@ const initialState: InitialState = {
     newsAuthor: { firstname: '', lastname: '' },
     content: '',
     date_publication: '',
+    user_id: 0,
   },
   isloading: true,
   error: null,
@@ -91,6 +92,7 @@ const newsReducer = createReducer(initialState, (builder) => {
         newsAuthor: { firstname: '', lastname: '' },
         content: '',
         date_publication: '',
+        user_id: 0,
       };
     })
     .addCase(actionThunkAddNews.rejected, (state, action) => {
@@ -113,6 +115,7 @@ const newsReducer = createReducer(initialState, (builder) => {
         newsAuthor: { firstname: '', lastname: '' },
         content: '',
         date_publication: '',
+        user_id: 0,
       };
     })
     .addCase(actionThunkUpdateNews.rejected, (state, action) => {
