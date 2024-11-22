@@ -12,8 +12,6 @@ import {
 
 // -- LE STATE INITIAL
 interface InitialState {
-  remove: any;
-  modified: any;
   newsList: INews[];
   news: INews;
   isloading: boolean;

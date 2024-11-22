@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector} from '../../lib/hooks';
 import { useEffect, useState } from 'react';
 import { actionSetNews } from '../../lib/actions/news.action';
 import { actionThunkAddNews } from '../../lib/thunks/news.thunk';
+import { actionThunkUserList } from '../../lib/thunks/user.thunk';
 
 import ModalContitions from "../Components/ModalConditions";
 
@@ -12,8 +13,11 @@ export default function EditInformation() {
 
   const dispatch = useAppDispatch();
 
-  const user = useAppSelector((state) => state.user.user);
-  const pseudo = useAppSelector((state) => state.auth.pseudo);
+  const users = useAppSelector((state) => state.user.users);
+
+  useEffect(() => {
+    dispatch(actionThunkUserList());
+  }, [dispatch]);
 
   const [picture, setPicture] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -22,21 +26,17 @@ export default function EditInformation() {
   const [subtitle, setSubtitle] = useState('');
   const [content, setContent] = useState('');
   const [datePublication, setdatePublication] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [authors, setAuthors] = useState('');
+ // const [firstName, setFirstName] = useState('');
+  //const [lastName, setLastName] = useState('');
+
   
-  useEffect(() => {
-    if (pseudo) {
-      setFirstName(user.firstname || '');
-      setLastName(user.lastname || '');
-    }
-  }, [user, pseudo]);
   
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     setSelectedFile(file);
-    setPicture(file ? URL.createObjectURL(file) : ''); // Génère une URL de prévisualisation pour l'image
+    setPicture(file ? URL.createObjectURL(file) : 'https://www.image-heberg.fr/files/17321854994127176357.jpg'); // Génère une URL de prévisualisation pour l'image
   };
   
 
@@ -70,7 +70,11 @@ export default function EditInformation() {
           dispatch(actionSetNews({ name: 'subtitle', value: subtitle }));
           dispatch(actionSetNews({ name: 'content', value: content }));
           dispatch(actionSetNews({ name: 'date_publication', value: datePublication }));
-          dispatch(actionSetNews({ name: 'newsAuthor', value: `${user.firstname} ${user.lastname}` }));
+          const selectedUser = users.find(user => `${user.id} ${user.firstname} ${user.lastname}` === authors);
+          if (selectedUser) {
+            dispatch(actionSetNews({ name: 'newsAuthor', value: `${selectedUser.firstname} ${selectedUser.lastname}` }));
+            dispatch(actionSetNews({ name: 'user_id', value: `${selectedUser.id} ` }));
+          }
 
           await dispatch(actionThunkAddNews());
         }}
@@ -93,6 +97,7 @@ export default function EditInformation() {
        {picture && <img src={picture} alt="Prévisualisation" />}
     </div>
   </div>
+
 
           <div className="sm:col-span-2">
             <label htmlFor="title" className="block text-sm font-semibold leading-6 text-gray-900">
@@ -135,43 +140,27 @@ export default function EditInformation() {
           </div>
 
           <div className="sm:col-span-2 grid grid-cols-2 gap-4">
-  <div>
-    <label htmlFor="firstName" className="block text-sm font-semibold leading-6 text-gray-900">
-      Prénom de l&apos;auteur
-    </label>
-    <div className="mt-2.5">
-      <input
-        required
-        id="firstName"
-        name="firstName"
-        type="text"
-        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-        value={firstName}
-        onChange={(e) => {
-          setFirstName(e.target.value);
-        }}
-      />
-    </div>
-  </div>
-
-  <div>
-    <label htmlFor="lastName" className="block text-sm font-semibold leading-6 text-gray-900">
-      Nom de l&apos;auteur
-    </label>
-    <div className="mt-2.5">
-      <input
-        required
-        id="lastName"
-        name="lastName"
-        type="text"
-        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-        value={lastName}
-        onChange={(e) => {
-          setLastName(e.target.value);
-        }}
-      />
-    </div>
-  </div>
+          <div className="sm:col-span-2">
+  <label htmlFor="users" className="block text-sm font-semibold leading-6 text-gray-900">
+    Auteur
+  </label>
+  <select
+      required
+      id="users"
+      name="users"
+      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      value={authors}
+      onChange={(e) => {
+        setAuthors(e.target.value);
+      }}
+    >
+      <option value="" disabled>Choisissez un auteur</option>
+      {users.map((user) => (
+            <option key={user.id} value={`${user.firstname} ${user.lastname}`}>
+              {user.firstname} {user.lastname}
+        </option>
+      ))}
+    </select>
 </div>
 
           <div className="sm:col-span-2">
@@ -220,6 +209,7 @@ export default function EditInformation() {
           >
             Envoyer
           </button>
+        </div>
         </div>
       </form>
     </div>

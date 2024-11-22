@@ -26,8 +26,8 @@ export default function DetailInformation() {
     }
 
 
-  const modified = useAppSelector((state) => state.news.modified);
-  const removed = useAppSelector((state) => state.news.remove);
+  const modified = useAppSelector((state) => state.news.isEdited);
+  const removed = useAppSelector((state) => state.news.deleted);
   const news: INews = useAppSelector((state) => state.news.news);
   const isLoading = useAppSelector((state) => state.news.isloading);
 
