@@ -76,10 +76,9 @@ export default function EditInformation() {
           dispatch(actionSetNews({ name: 'subtitle', value: subtitle }));
           dispatch(actionSetNews({ name: 'content', value: content }));
           dispatch(actionSetNews({ name: 'date_publication', value: datePublication }));
-          const selectedUser = users.find(user => `${user.id} ${user.firstname} ${user.lastname}` === authors);
+          const selectedUser = users.find(user => ` ${user.firstname} ${user.lastname}` === authors);
           if (selectedUser) {
             dispatch(actionSetNews({ name: 'newsAuthor', value: `${selectedUser.firstname} ${selectedUser.lastname}` }));
-            dispatch(actionSetNews({ name: 'user_id', value: `${selectedUser.id} ` }));
           }
 
           await dispatch(actionThunkAddNews());
@@ -160,7 +159,7 @@ export default function EditInformation() {
         setAuthors(e.target.value);
       }}
     >
-      <option value={authors} disabled>Choisissez un auteur</option>
+      <option value="" disabled>Choisissez un auteur</option>
       {users.map((user) => (
             <option key={user.id} value={`${user.firstname} ${user.lastname}`}>
               {user.firstname} {user.lastname}
