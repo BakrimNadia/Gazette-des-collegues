@@ -40,7 +40,7 @@ export default function EditInformation() {
   };
 
   useEffect(() => {
-    if (users) {
+    if (users && users.length > 0) {
       setAuthors(`${users[0].firstname} ${users[0].lastname}`);
     }
   }, [users]);
