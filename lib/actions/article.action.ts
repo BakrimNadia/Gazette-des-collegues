@@ -7,7 +7,7 @@ export const actionSetArticle = createAction<{
     | 'picture'
     | 'title'
     | 'subtitle'
-    | 'newsauthor'
+    | 'articleAuthor'
     | 'content'
     | 'date_publication'
     | 'user_id';

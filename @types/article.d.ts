@@ -3,7 +3,7 @@ export interface IArticle {
     picture?: string;
     title: string;
     subtitle: string;
-    newsAuthor: {firstname: string, lastname: string};
+    articleAuthor: {firstname: string, lastname: string};
     content: string;
     date_publication: string;
     user_id: number;

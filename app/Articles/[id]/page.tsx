@@ -4,10 +4,10 @@ import { useParams } from 'next/navigation';
 import { Card, CardHeader, CardBody, Image } from '@nextui-org/react';
 import { useEffect } from 'react';
 import { IArticle } from '@/@types/article';
-import { actionThunkArticleById } from '@/lib/thunks/article.thunk';
+import { actionThunkArticleById, actionThunkArticleList, actionThunkDeleteArticle } from '@/lib/thunks/article.thunk';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import Loader from '@/app/Components/Loader';
-import { actionSetArticleId } from '@/lib/actions/article.action';
+import { actionSetArticle, actionSetArticleId } from '@/lib/actions/article.action';
 
 export default function DetailArticle() {
   const dispatch = useAppDispatch();
@@ -24,9 +24,14 @@ export default function DetailArticle() {
     async function getArticleById() {
         await dispatch(actionThunkArticleById());
     }
-
+  const modified = useAppSelector((state) => state.article.isEdited);
+  const removed = useAppSelector((state) => state.article.deleted);
   const article: IArticle = useAppSelector((state) => state.article.article);
   const isLoading = useAppSelector((state) => state.article.isloading);
+
+  useEffect(() => {
+    dispatch(actionThunkArticleList());
+  }, [modified, removed, dispatch]);
 
   if (isLoading) {
     return <Loader />;
@@ -44,7 +49,9 @@ export default function DetailArticle() {
      onPress={() => console.log("item pressed")}>   
           <CardHeader className="mt-4 mb-4 pb-0 pt-2 px-4 flex-col items-center">
             <h4 className="font-bold text-3xl">{article.title}</h4>
-            <small className="text-default-500 font-bold">{article.author}</small>
+            <small className="text-default-500 font-bold">{article.articleAuthor?.firstname && article.articleAuthor?.lastname 
+                ? `${article.articleAuthor.firstname} ${article.articleAuthor.lastname}` 
+                : 'Auteur inconnu'}</small>
           </CardHeader>
           <CardBody className="overflow-visible py-2">
             <Image
@@ -60,6 +67,18 @@ export default function DetailArticle() {
         <h4 className="font-bold text-center text-xl mb-6">{article.subtitle}</h4>
         <p>{article.content}</p>
         <small>publié le {article.date_publication}</small>
+      </div>
+      <div className="text-center mb-10">
+        <button className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] text-white font-bold px-4 py-2 rounded-md mx-5">Modifier</button>
+        <button 
+        className="bg-gradient-to-r from-red-500 to-[#A9A9A9] text-white font-bold px-4 py-2 rounded-md mx-5"
+        onClick={async () => {
+          dispatch(
+            actionSetArticle({ name: 'title', value: article.title })
+          );
+          await dispatch(actionThunkDeleteArticle());
+        }}
+        >supprimer</button>
       </div>
     </div>
   );
