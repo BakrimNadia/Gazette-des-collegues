@@ -40,7 +40,7 @@ export default function Home() {
           fill
         />
       </section>
-      <section className="mt-10 justify-center items-center">
+      <section className="w-full mt-10 justify-center items-center">
       <div>
         <h2 className="text-3xl font-bold tracking-tight text-center text-gray-600 sm:text-3xl mb-8">
          Parcourez nos différentes rubriques

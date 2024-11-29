@@ -7,9 +7,10 @@ export const actionSetArticle = createAction<{
     | 'picture'
     | 'title'
     | 'subtitle'
-    | 'author'
+    | 'newsauthor'
     | 'content'
-    | 'date_publication';
+    | 'date_publication'
+    | 'user_id';
   value: string;
 }>('article/SET_ARTICLE');
 

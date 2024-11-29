@@ -28,9 +28,10 @@ const initialState: InitialState = {
     picture: '',
     title: '',
     subtitle: '',
-    author: '',
+    newsAuthor: { firstname: '', lastname: '' },
     content: '',
     date_publication: '',
+    user_id: 0,
   },
   isloading: true,
   error: null,
@@ -42,7 +43,9 @@ const initialState: InitialState = {
 const articleReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(actionSetArticle, (state, action) => {
-      state.article[action.payload.name] = action.payload.value;
+      if (action.payload.name in state.article) {  
+      (state.article as  Record<string, unknown>)[action.payload.name] = action.payload.value;
+      }
     })
     .addCase(actionSetArticleId, (state, action) => {
       state.article.id = action.payload;
@@ -80,9 +83,10 @@ const articleReducer = createReducer(initialState, (builder) => {
         picture: '',
         title: '',
         subtitle: '',
-        author: '',
+        newsAuthor: { firstname: '', lastname: '' },
         content: '',
         date_publication: '',
+        user_id: 0,
       };
     })
     .addCase(actionThunkAddArticle.rejected, (state, action) => {
@@ -100,9 +104,10 @@ const articleReducer = createReducer(initialState, (builder) => {
         picture: '',
         title: '',
         subtitle: '',
-        author: '',
+        newsAuthor: { firstname: '', lastname: '' },
         content: '',
         date_publication: '',
+        user_id: 0,
       };
     })
     .addCase(actionThunkUpdateArticle.rejected, (state, action) => {

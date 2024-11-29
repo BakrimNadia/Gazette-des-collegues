@@ -8,6 +8,7 @@ import { actionThunkNewsById, actionThunkNewsList, actionThunkDeleteNews } from 
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import Loader from '@/app/Components/Loader';
 import { actionSetNews, actionSetNewsId } from '@/lib/actions/news.action';
+//import router from 'next/router';
 
 export default function DetailInformation() {
   const dispatch = useAppDispatch();
@@ -34,6 +35,12 @@ export default function DetailInformation() {
   useEffect(() => {
     dispatch(actionThunkNewsList());
   }, [modified, removed, dispatch]);
+
+ /* useEffect(() => {
+    if (removed) {
+      router.push('/Informations'); 
+    }
+  }, [removed, router]); */
 
 
   if (isLoading) {
