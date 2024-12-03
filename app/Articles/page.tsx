@@ -18,6 +18,9 @@ export default function Articles() {
   const article: IArticle[] = useAppSelector((state) => state.article.articleList);
   console.log(article);
 
+  const userRole = useAppSelector((state) => state.auth.role); 
+  const hasAccess = userRole === "Admin" || userRole === "Rédacteur";
+
   const isLoading = useAppSelector((state) => state.article.isloading);
 
   if (isLoading) {
@@ -46,6 +49,14 @@ export default function Articles() {
         return <CardArticle key={articleItem.id} articleItem={articleItem} />;
       })}
       </section>
+      {hasAccess && (
+      <div className="mt-10 mb-10">
+      <a 
+      href="/Edit-article"
+      className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] text-white font-bold px-4 py-2 rounded-md mx-5"
+      >Editer un article</a>
+      </div>
+      )}
     </div>
   );
 }

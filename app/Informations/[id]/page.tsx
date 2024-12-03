@@ -42,6 +42,8 @@ export default function DetailInformation() {
     }
   }, [removed, router]); */
 
+  const userRole = useAppSelector((state) => state.auth.role); 
+  const hasAccess = userRole === "Admin" || userRole === "Rédacteur";
 
   if (isLoading) {
     return <Loader />;
@@ -78,6 +80,7 @@ export default function DetailInformation() {
         <p>{news.content}</p>
         <small>publié le {news.date_publication}</small>
       </div>
+      {hasAccess && (
       <div className="text-center mb-10">
         <button className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] text-white font-bold px-4 py-2 rounded-md mx-5">Modifier</button>
         <button 
@@ -90,6 +93,7 @@ export default function DetailInformation() {
         }}
         >supprimer</button>
       </div>
+      )}
     </div>
   );
 }

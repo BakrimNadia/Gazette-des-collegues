@@ -19,6 +19,9 @@ export default function Informations() {
   const news: INews[] = useAppSelector((state) => state.news.newsList);
   console.log(news);
 
+  const userRole = useAppSelector((state) => state.auth.role); 
+  const hasAccess = userRole === "Admin" || userRole === "Rédacteur";
+
   const isLoading = useAppSelector((state) => state.news.isloading);
 
   if (isLoading) {
@@ -47,12 +50,14 @@ export default function Informations() {
         return <CardInformations key={newsItem.id} newItem={newsItem} />;
       })}
       </section>
+      {hasAccess && (
       <div className="mb-10">
       <a 
       href="/Edit-information"
       className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] text-white font-bold px-4 py-2 rounded-md mx-5"
-      >Editer un article</a>
+      >Editer une information</a>
       </div>
+      )}
     </div>
   );
 }

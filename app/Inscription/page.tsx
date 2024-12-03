@@ -14,6 +14,7 @@ export default function Inscription() {
 
   const roles = [
     { key: 'Employé', label: 'Employé' },
+    { key: 'Rédacteur', label: 'Rédacteur' },
     { key: 'Admin', label: 'Admin' },
   ];
 
