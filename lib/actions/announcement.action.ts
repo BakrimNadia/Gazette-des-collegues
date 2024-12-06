@@ -9,7 +9,8 @@ export const actionSetAnnouncement = createAction<{
     | 'price'
     | 'author'
     | 'content'
-    | 'date_publication';
+    | 'date_publication'
+    | 'category';
   value: string;
 }>('announcement/SET_ANNOUNCEMENT');
 

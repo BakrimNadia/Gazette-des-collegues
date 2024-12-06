@@ -6,4 +6,5 @@ export interface IAnnouncement {
     author: string;
     content: string;
     date_publication: string;
+    category: string;
   }

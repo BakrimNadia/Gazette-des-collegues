@@ -35,6 +35,7 @@ const actionThunkAddAnnouncement = createAsyncThunk(
       author: state.announcement.announcement.author,
       content: state.announcement.announcement.content,
       date_publication: state.announcement.announcement.date_publication,
+      category: state.announcement.announcement.category,
     });
     return 'add succesfull';
   }
@@ -53,6 +54,7 @@ const actionThunkUpdateAnnouncement = createAsyncThunk(
         author: state.announcement.announcement.author,
         content: state.announcement.announcement.content,
         date_publication: state.announcement.announcement.date_publication,
+        category: state.announcement.announcement.category,
       }
     );
     console.log(response.data);

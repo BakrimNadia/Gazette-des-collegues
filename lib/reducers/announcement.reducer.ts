@@ -31,6 +31,7 @@ const initialState: InitialState = {
     author: '',
     content: '',
     date_publication: '',
+    category: '',
   },
   isloading: true,
   error: null,
@@ -83,6 +84,7 @@ const announcementReducer = createReducer(initialState, (builder) => {
         author: '',
         content: '',
         date_publication: '',
+        category: '',
       };
     })
     .addCase(actionThunkAddAnnouncement.rejected, (state, action) => {
@@ -103,6 +105,7 @@ const announcementReducer = createReducer(initialState, (builder) => {
         author: '',
         content: '',
         date_publication: '',
+        category: '',
       };
     })
     .addCase(actionThunkUpdateAnnouncement.rejected, (state, action) => {
