@@ -36,7 +36,7 @@ export default function EditInformation() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     setSelectedFile(file);
-    setPicture(file ? URL.createObjectURL(file) : 'https://www.image-heberg.fr/files/17321854994127176357.jpg'); // Génère une URL de prévisualisation pour l'image
+    setPicture(file ? URL.createObjectURL(file) : 'https://www.image-heberg.fr/files/17321854994127176357.jpg'); 
   };
 
   useEffect(() => {

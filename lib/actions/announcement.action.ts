@@ -10,7 +10,7 @@ export const actionSetAnnouncement = createAction<{
     | 'author'
     | 'content'
     | 'date_publication'
-    | 'category';
+    | 'category_id';
   value: string;
 }>('announcement/SET_ANNOUNCEMENT');
 
