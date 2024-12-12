@@ -31,7 +31,8 @@ const initialState: InitialState = {
     author: '',
     content: '',
     date_publication: '',
-    category_id: '',
+    category:{ name: ''},
+    category_id: 0,
   },
   isloading: true,
   error: null,
@@ -43,7 +44,7 @@ const initialState: InitialState = {
 const announcementReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(actionSetAnnouncement, (state, action) => {
-      state.announcement[action.payload.name] = action.payload.value;
+      (state.announcement as Record<string, unknown>)[action.payload.name] = action.payload.value;
     })
     .addCase(actionSetAnnouncementId, (state, action) => {
       state.announcement.id = action.payload;
@@ -84,7 +85,8 @@ const announcementReducer = createReducer(initialState, (builder) => {
         author: '',
         content: '',
         date_publication: '',
-        category_id: '',
+        category:{ name: ''},
+        category_id: 0,
       };
     })
     .addCase(actionThunkAddAnnouncement.rejected, (state, action) => {
@@ -105,7 +107,8 @@ const announcementReducer = createReducer(initialState, (builder) => {
         author: '',
         content: '',
         date_publication: '',
-        category_id: '',
+        category: { name: ''},
+        category_id: 0,
       };
     })
     .addCase(actionThunkUpdateAnnouncement.rejected, (state, action) => {
