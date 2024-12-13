@@ -4,13 +4,14 @@ import CardAnnonce from "../Components/CardAnnonce";
 import { IAnnouncement } from "@/@types/announcement";
 import { actionThunkAnnouncementList } from "@/lib/thunks/announcement.thunk";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../Components/Loader";
 import { Input } from "@nextui-org/react";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 export default function Annonces() {
   const dispatch = useAppDispatch();
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     console.log("Dispatching action to fetch announcement");
@@ -25,6 +26,10 @@ export default function Annonces() {
   if (isLoading) {
     return <Loader />;
   }
+
+  const filteredAnnouncements = announcement.filter((announcementItem) =>
+    announcementItem.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen mx-2">
@@ -67,6 +72,8 @@ export default function Annonces() {
           <MagnifyingGlassIcon
           className="h-5 w-5 text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
         }
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
       />
       <Input
         label="Filtrez par catégorie"
@@ -101,7 +108,7 @@ export default function Annonces() {
       />
     </div>
       <section className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-center mx-2">
-      {announcement.map((announcementItem) => {
+      {filteredAnnouncements.map((announcementItem) => {
         return <CardAnnonce key={announcementItem.id} announcementItem={announcementItem} />;
       })}
       </section>

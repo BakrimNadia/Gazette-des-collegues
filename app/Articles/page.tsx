@@ -37,7 +37,7 @@ export default function Articles() {
       <p className="text-3xl text-center mt-4">
         Voici quelques articles qui pourraient vous intéresser
       </p>
-      <div className="mt-4 mx-8 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#B0EACD] to-[#D3D3D3]">
+      <div className="mt-4 mx-8 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#D3D3D3] to-[#B0EACD]">
         <p className="text-lg text-center mb-4 mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
             Qui consequuntur quae molestias repellat dolore magnam dolorem, enim dignissimos 
             commodi! Velit esse, eligendi asperiores saepe minima odit laboriosam! Non, culpa? 
