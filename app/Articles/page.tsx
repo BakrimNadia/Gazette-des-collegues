@@ -37,14 +37,14 @@ export default function Articles() {
       <p className="text-3xl text-center mt-4">
         Voici quelques articles qui pourraient vous intéresser
       </p>
-      <div className="mt-4 mx-8 p-2 border border-current rounded-lg shadow-xl">
+      <div className="mt-4 mx-8 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#B0EACD] to-[#D3D3D3]">
         <p className="text-lg text-center mb-4 mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
             Qui consequuntur quae molestias repellat dolore magnam dolorem, enim dignissimos 
             commodi! Velit esse, eligendi asperiores saepe minima odit laboriosam! Non, culpa? 
             Repellat praesentium quod asperiores ipsa necessitatibus laboriosam tenetur dolores deserunt, 
             voluptate veniam voluptates ad exercitationem minima, tempore cupiditate reprehenderit ducimus cumque.</p>
       </div>
-      <section className="mt-8 mx-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
+      <section className="mt-8 mx-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center mb-10">
       {article.map((articleItem) => {
         return <CardArticle key={articleItem.id} articleItem={articleItem} />;
       })}

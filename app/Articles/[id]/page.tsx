@@ -1,5 +1,7 @@
 'use client';
 
+import moment from 'moment';
+import 'moment/locale/fr';
 import { useParams } from 'next/navigation';
 import { Card, CardHeader, CardBody, Image } from '@nextui-org/react';
 import { useEffect } from 'react';
@@ -10,6 +12,9 @@ import Loader from '@/app/Components/Loader';
 import { actionSetArticle, actionSetArticleId } from '@/lib/actions/article.action';
 
 export default function DetailArticle() {
+  const formatDate = (dateString: string): string => {
+    return moment(dateString).locale('fr').format('DD/MM/YYYY');
+  };
   const dispatch = useAppDispatch();
 
   const { id } = useParams();
@@ -69,7 +74,7 @@ export default function DetailArticle() {
       <div className="mt-8 mb-10 mx-8 text-justify">
         <h4 className="font-bold text-center text-xl mb-6">{article.subtitle}</h4>
         <p>{article.content}</p>
-        <small>publié le {article.date_publication}</small>
+        <small>publié le {formatDate(article.date_publication)}</small>
       </div>
       {hasAccess && (
       <div className="text-center mb-10">

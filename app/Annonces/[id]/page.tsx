@@ -1,5 +1,7 @@
 'use client';
 
+import moment from 'moment';
+import 'moment/locale/fr';
 import { useParams } from 'next/navigation';
 import { Card, CardHeader, CardBody, Image } from '@nextui-org/react';
 import { useEffect } from 'react';
@@ -10,6 +12,9 @@ import Loader from '@/app/Components/Loader';
 import { actionSetAnnouncementId } from '@/lib/actions/announcement.action';
 
 export default function DetailAnnouncement() {
+  const formatDate = (dateString: string): string => {
+    return moment(dateString).locale('fr').format('DD/MM/YYYY');
+  };
   const dispatch = useAppDispatch();
 
   const { id } = useParams();
@@ -60,7 +65,7 @@ export default function DetailAnnouncement() {
         <h4 className=" text-center font-bold text-xl mb-6 sm:justify-center">{announcement.price}</h4>
         <p className="mb-6">{announcement.content}</p>
         <small>{announcement.category?.name}</small>
-        <small>publié le {announcement.date_publication}</small>
+        <small>publié le {formatDate(announcement.date_publication)}</small>
       </div>
     </div>
   );

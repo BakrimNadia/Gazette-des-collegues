@@ -36,7 +36,7 @@ export default function Annonces() {
       <p className="text-3xl text-center mt-4 mb-10">
         Partageons nos petites annonces entre collègues
       </p>
-      <div className="w-full max-w-screen-xl h-[240px] px-8 py-6 rounded-2xl flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 justify-center items-center bg-gradient-to-tr from-gray-400 to-blue-400 text-white shadow-lg">
+      <div className="w-full max-w-screen-xl h-[240px] px-8 py-6 rounded-2xl flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 justify-center items-center bg-gradient-to-tr from-gray-400 to-blue-400 text-white shadow-xl">
       <Input
         label="Rechercher une annonce"
         isClearable
