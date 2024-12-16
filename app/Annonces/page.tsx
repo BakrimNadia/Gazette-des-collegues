@@ -111,11 +111,17 @@ export default function Annonces() {
            
         </Select>
       </div>
-      <section className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-center mx-2">
+      <section className="mt-8 mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-center mx-2">
       {filteredAnnouncements.map((announcementItem) => {
         return <CardAnnonce key={announcementItem.id} announcementItem={announcementItem} />;
       })}
       </section>
+      <div className="mt-10 mb-10">
+      <a 
+      href="/Edit-annonce"
+      className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] text-white font-bold px-4 py-2 rounded-md mx-5"
+      >Editer une annonce</a>
+      </div>
     </div>
   );
 }

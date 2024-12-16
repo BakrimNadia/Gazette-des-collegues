@@ -79,6 +79,7 @@ export default function EditInformation() {
           const selectedUser = users.find(user => ` ${user.firstname} ${user.lastname}` === authors);
           if (selectedUser) {
             dispatch(actionSetNews({ name: 'newsAuthor', value: `${selectedUser.firstname} ${selectedUser.lastname}` }));
+            dispatch(actionSetNews({ name: 'user_id', value: selectedUser.id.toString() }));
           }
 
           await dispatch(actionThunkAddNews());
