@@ -11,7 +11,7 @@ export default function CardProfilAnnouncements({ announcementItem }: CardAnnoun
  
 
   return (
-    <Link  href={`/Articles/${announcementItem.id}`}>
+    <Link  href={`/Annonces/${announcementItem.id}`}>
       <div className="mx-2">
         <Card shadow="sm" isPressable onPress={() => console.log("item pressed")}>
           <CardBody className="overflow-visible p-0">

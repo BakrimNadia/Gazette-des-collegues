@@ -8,16 +8,14 @@ import { IAnnouncement } from "@/@types/announcement";
 import { actionThunkNewsList } from "@/lib/thunks/news.thunk";
 import { actionThunkArticleList } from "@/lib/thunks/article.thunk";
 import { actionThunkAnnouncementList } from "@/lib/thunks/announcement.thunk";
-import { actionThunkUserById } from "@/lib/thunks/user.thunk";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { useEffect } from "react";
 import Loader from "../Components/Loader";
 import CardProfilAnnouncements from "../Components/CardProfilAnnouncements";
-import { actionSetUserId } from "@/lib/actions/user.action";
 import { getTokenAndPseudoFromLocalStorage } from "@/localStorage/localStorage";
 import { actionLogIn } from "@/lib/actions/auth.action";
 import { addTokenJwtToAxiosInstance } from "@/lib/axios/axios";
-import { IUser } from "@/@types/user";
+import  {Card, Image,CardBody } from "@nextui-org/react";
 
 
 export default function Profil() {
@@ -42,6 +40,7 @@ export default function Profil() {
 
 const pseudo = useAppSelector((state) => state.auth.pseudo);
 const role = useAppSelector((state) => state.auth.role);
+const avatar = useAppSelector((state) => state.auth.avatar);
 
 
     const news: INews[] = useAppSelector((state) => state.news.newsList);
@@ -75,6 +74,17 @@ const role = useAppSelector((state) => state.auth.role);
                 </h1>
             </div>
             <h2 className="text-3xl text-center mt-4">Mes informations personnelles</h2>
+            <div>
+        <Card className="mx-2 mt-10"  shadow="sm">       
+        <CardBody className="overflow-visible p-0">
+            <Image
+                alt={pseudo}
+                className="w-full object-cover h-[150px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
+                src={avatar}
+            />
+        </CardBody >
+        </Card>
+            </div>
             <table className="mt-10 divide-gray-300 px-5 border">
                 <thead className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9]">
                     <tr>
@@ -104,20 +114,26 @@ const role = useAppSelector((state) => state.auth.role);
             <div className="mt-10 mb-10">
             <h3 className="text-center font-bold mb-10">Informations publiées</h3>
             <div className="mt-10 mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
-                {news.map((newsItem) => {
+                {news
+                .filter((newsItem) => `${newsItem.newsAuthor.firstname} ${newsItem.newsAuthor.lastname}` === pseudo)
+                .map((newsItem) => {
                         return <CardProfilNews key={newsItem.id} newItem={newsItem} />;
                       })}
             </div>
             <h3 className="text-center font-bold mb-10">Articles publiées</h3>
             <div className="mt-10 mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
             
-            {articles.map((articleItem) => {
+            {articles
+            .filter((articleItem) => `${articleItem.articleAuthor.firstname} ${articleItem.articleAuthor.lastname}` === pseudo)
+            .map((articleItem) => {
                         return <CardProfilArticles key={articleItem.id} articleItem={articleItem} />;
                       })}
             </div>
             <h3 className="text-center font-bold mb-10">Annonces publiées</h3>
             <div className="mt-10 mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
-            {announcements.map((announcementItem) => {
+            {announcements
+            .filter((announcementItem) => `${announcementItem.author}` === pseudo)    
+            .map((announcementItem) => {
                         return <CardProfilAnnouncements key={announcementItem.id} announcementItem={announcementItem} />;
                       })}
             </div>
