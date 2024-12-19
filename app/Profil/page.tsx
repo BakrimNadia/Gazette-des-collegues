@@ -4,28 +4,65 @@ import CardProfilNews from "../Components/CardProfilNews";
 import CardProfilArticles from "../Components/CardProfilArticles";
 import { INews } from "@/@types/news";
 import {IArticle} from "@/@types/article";
+import { IAnnouncement } from "@/@types/announcement";
 import { actionThunkNewsList } from "@/lib/thunks/news.thunk";
 import { actionThunkArticleList } from "@/lib/thunks/article.thunk";
+import { actionThunkAnnouncementList } from "@/lib/thunks/announcement.thunk";
+import { actionThunkUserById } from "@/lib/thunks/user.thunk";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { useEffect } from "react";
 import Loader from "../Components/Loader";
+import CardProfilAnnouncements from "../Components/CardProfilAnnouncements";
+import { useParams } from "next/navigation";
+import { actionSetUserId } from "@/lib/actions/user.action";
 
 export default function Profil() {
     const dispatch = useAppDispatch();
+
+    const { id } = useParams();
+  const userId = Number(id);
 
   useEffect(() => {
     console.log("Dispatching action to fetch news");
     dispatch(actionThunkNewsList());
     dispatch(actionThunkArticleList());
+    dispatch(actionThunkAnnouncementList());
   }, [dispatch]);
 
-  const news: INews[] = useAppSelector((state) => state.news.newsList);
-  console.log(news);
+  useEffect(() => {
+if (userId) {
+    dispatch(actionSetUserId(userId));
+    getUserById();  
+}}, [userId, dispatch]);
+
+async function getUserById() {
+    await dispatch(actionThunkUserById());
+}
+
+  
+
+    const news: INews[] = useAppSelector((state) => state.news.newsList);
+    console.log(news);
 
     const articles: IArticle[] = useAppSelector((state) => state.article.articleList);
     console.log(articles);
 
+    const announcements: IAnnouncement[] = useAppSelector((state) => state.announcement.announcementList);
+    console.log(announcements);
+
+    const user = useAppSelector((state) => state.user.user);
+    console.log(user);
+
+    const pseudo = useAppSelector((state) => state.auth.pseudo);
+
     const isLoading = useAppSelector((state) => state.news.isloading);
+
+    if (!pseudo) {
+      return <div>Vous devez être connecté pour accéder à cette page</div>;
+    }
+    else{
+
+    }
   
     if (isLoading) {
       return <Loader />;
@@ -54,20 +91,20 @@ export default function Profil() {
                 <tbody className="bg-white divide-y divide-gray-200">
                     <tr>
                         <td className="px-6 py-4 whitespace-nowrap">Nom</td>
-                        <td className="px-6 py-4 whitespace-nowrap">Doe</td>
+                        <td className="px-6 py-4 whitespace-nowrap">{user.firstname}</td>
                     </tr>
                     <tr>
                         <td className="px-6 py-4 whitespace-nowrap">Prénom</td>
-                        <td className="px-6 py-4 whitespace-nowrap">John</td>
+                        <td className="px-6 py-4 whitespace-nowrap">{user.lastname}</td>
                     </tr>
 
                     <tr>
                         <td className="px-6 py-4 whitespace-nowrap">Email</td>
-                        <td className="px-6 py-4 whitespace-nowrap">abcd@gmail.com</td>
+                        <td className="px-6 py-4 whitespace-nowrap">{user.email}</td>
                     </tr>
                     <tr>
                         <td className="px-6 py-4 whitespace-nowrap">Role</td>
-                        <td className="px-6 py-4 whitespace-nowrap">Employé</td>
+                        <td className="px-6 py-4 whitespace-nowrap">{user.role}</td>
                     </tr>
                 </tbody>
             </table>
@@ -85,13 +122,15 @@ export default function Profil() {
             <h3 className="text-center font-bold mb-10">Articles publiées</h3>
             <div className="mt-10 mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
             
-            {news.map((newsItem) => {
-                        return <CardProfilArticles key={newsItem.id} newItem={newsItem} />;
+            {articles.map((articleItem) => {
+                        return <CardProfilArticles key={articleItem.id} articleItem={articleItem} />;
                       })}
             </div>
-            <div className="mt-10 mb-10">
             <h3 className="text-center font-bold mb-10">Annonces publiées</h3>
-                mes annonces
+            <div className="mt-10 mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
+            {announcements.map((announcementItem) => {
+                        return <CardProfilAnnouncements key={announcementItem.id} announcementItem={announcementItem} />;
+                      })}
             </div>
             </div>
         </div>

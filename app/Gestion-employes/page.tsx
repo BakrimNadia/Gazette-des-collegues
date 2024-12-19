@@ -33,7 +33,6 @@ export default function GestionEmployes() {
       const modified = useAppSelector((state) => state.auth.modified);
       const removed = useAppSelector((state) => state.user.remove);
       const users = useAppSelector((state) => state.user.users);
-      //const user = useAppSelector((state) => state.user.user);
       const isLoading = useAppSelector((state) => state.user.isloading);
       
       useEffect(() => {
