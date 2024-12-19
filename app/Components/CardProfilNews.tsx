@@ -20,7 +20,7 @@ export default function CardProfilNews({ newItem }: CardNewsProps) {
               radius="lg"
               width="100%"
               alt={newItem.title}
-              className="w-full object-cover h-[150px]"
+              className="w-full object-cover h-[150px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
               src={newItem.picture}
             />
           </CardBody>

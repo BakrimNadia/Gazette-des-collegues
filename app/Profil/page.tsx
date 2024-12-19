@@ -13,14 +13,15 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { useEffect } from "react";
 import Loader from "../Components/Loader";
 import CardProfilAnnouncements from "../Components/CardProfilAnnouncements";
-import { useParams } from "next/navigation";
 import { actionSetUserId } from "@/lib/actions/user.action";
+import { getTokenAndPseudoFromLocalStorage } from "@/localStorage/localStorage";
+import { actionLogIn } from "@/lib/actions/auth.action";
+import { addTokenJwtToAxiosInstance } from "@/lib/axios/axios";
+import { IUser } from "@/@types/user";
+
 
 export default function Profil() {
     const dispatch = useAppDispatch();
-
-    const { id } = useParams();
-  const userId = Number(id);
 
   useEffect(() => {
     console.log("Dispatching action to fetch news");
@@ -29,16 +30,39 @@ export default function Profil() {
     dispatch(actionThunkAnnouncementList());
   }, [dispatch]);
 
-  useEffect(() => {
-if (userId) {
-    dispatch(actionSetUserId(userId));
-    getUserById();  
-}}, [userId, dispatch]);
+   useEffect(() => {
+          const { jwt, pseudo, role, avatar } = getTokenAndPseudoFromLocalStorage();
+          if (jwt) {
+            dispatch(actionLogIn({ jwt, pseudo, role, avatar }));
+            addTokenJwtToAxiosInstance(jwt);
+          } else {
+            console.log('rien dans le localstorage');
+          }
+        }, [dispatch]);
 
-async function getUserById() {
+  const user : IUser = useAppSelector((state) => state.user.user);
+  const pseudo = useAppSelector((state) => state.auth.pseudo);
+
+/*useEffect(() => {
+  async function getUserById() {
     await dispatch(actionThunkUserById());
-}
+  }
 
+  if (pseudo && user) {
+    dispatch(actionSetUserId(user.id));
+    getUserById();
+  }
+}, [user, pseudo, dispatch]); */
+
+useEffect(() => {
+    if (pseudo) {
+      const userId = user ? user.id : null; // Récupérer l'ID utilisateur ici si possible
+      if (userId !== null) {
+        dispatch(actionSetUserId(userId));
+        dispatch(actionThunkUserById());
+      }
+    }
+  }, [pseudo, dispatch]);
   
 
     const news: INews[] = useAppSelector((state) => state.news.newsList);
@@ -50,15 +74,10 @@ async function getUserById() {
     const announcements: IAnnouncement[] = useAppSelector((state) => state.announcement.announcementList);
     console.log(announcements);
 
-    const user = useAppSelector((state) => state.user.user);
-    console.log(user);
-
-    const pseudo = useAppSelector((state) => state.auth.pseudo);
-
     const isLoading = useAppSelector((state) => state.news.isloading);
 
     if (!pseudo) {
-      return <div>Vous devez être connecté pour accéder à cette page</div>;
+      return <div className="text-center font-bold text-xl mt-10 mb-10">Vous devez être connecté pour accéder à cette page</div>;
     }
     else{
 

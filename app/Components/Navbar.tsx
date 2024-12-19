@@ -10,7 +10,7 @@ import { getTokenAndPseudoFromLocalStorage } from '@/localStorage/localStorage';
 
 const navigation = [
   { name: 'Accueil', href: '/', current: false },
-  { name: 'Notes / Infos', href: '/Informations', current: false },
+  { name: 'Informations', href: '/Informations', current: false },
   { name: 'Articles', href: '/Articles', current: false },
   { name: 'Petites annonces', href: '/Annonces', current: false },
   { name: 'Contact', href: '/Contact', current: false },
@@ -27,6 +27,9 @@ export default function Navbar() {
   // Sélection de l'état d'authentification et des informations utilisateur depuis le store Redux
   const pseudo = useAppSelector((state) => state.auth.pseudo);
   const avatar = useAppSelector((state) => state.auth.avatar);
+
+  const userRole = useAppSelector((state) => state.auth.role); 
+  const hasAccess = userRole === "Admin"
 
    // Initialiser l'état d'authentification au chargement de la navbar
    useEffect(() => {
@@ -73,6 +76,17 @@ export default function Navbar() {
                     {item.name}
                   </a>
                 ))}
+                {hasAccess && (
+                  <a
+                    href="/Gestion-employes"
+                    className={classNames(
+                      'text-white hover:bg-gray-400 hover:text-white',
+                      'rounded-md px-3 py-2 text-md font-medium'
+                    )}
+                  >
+                    Gestion des employés
+                  </a>
+                )}
               </div>
             </div>
           </div>
