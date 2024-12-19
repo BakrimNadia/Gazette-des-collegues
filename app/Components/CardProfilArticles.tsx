@@ -1,17 +1,17 @@
 import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
 
-import { INews } from "@/@types/news";
+import { IArticle } from "@/@types/article";
 import Link from "next/link";
 
-interface CardNewsProps {
-  newItem: INews;
+interface CardArticleProps {
+  newItem: IArticle;
 }
 
-export default function CardProfilNews({ newItem }: CardNewsProps) {
+export default function CardProfilArticles({ newItem }: CardArticleProps) {
  
 
   return (
-    <Link  href={`/Informations/${newItem.id}`}>
+    <Link  href={`/Articles/${newItem.id}`}>
       <div className="mx-2">
         <Card shadow="sm" isPressable onPress={() => console.log("item pressed")}>
           <CardBody className="overflow-visible p-0">
