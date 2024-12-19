@@ -40,30 +40,9 @@ export default function Profil() {
           }
         }, [dispatch]);
 
-  const user : IUser = useAppSelector((state) => state.user.user);
-  const pseudo = useAppSelector((state) => state.auth.pseudo);
+const pseudo = useAppSelector((state) => state.auth.pseudo);
+const role = useAppSelector((state) => state.auth.role);
 
-/*useEffect(() => {
-  async function getUserById() {
-    await dispatch(actionThunkUserById());
-  }
-
-  if (pseudo && user) {
-    dispatch(actionSetUserId(user.id));
-    getUserById();
-  }
-}, [user, pseudo, dispatch]); */
-
-useEffect(() => {
-    if (pseudo) {
-      const userId = user ? user.id : null; // Récupérer l'ID utilisateur ici si possible
-      if (userId !== null) {
-        dispatch(actionSetUserId(userId));
-        dispatch(actionThunkUserById());
-      }
-    }
-  }, [pseudo, dispatch]);
-  
 
     const news: INews[] = useAppSelector((state) => state.news.newsList);
     console.log(news);
@@ -109,21 +88,12 @@ useEffect(() => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                     <tr>
-                        <td className="px-6 py-4 whitespace-nowrap">Nom</td>
-                        <td className="px-6 py-4 whitespace-nowrap">{user.firstname}</td>
+                        <td className="px-6 py-4 whitespace-nowrap">Nom Prénom :</td>
+                        <td className="px-6 py-4 whitespace-nowrap">{pseudo}</td>
                     </tr>
                     <tr>
-                        <td className="px-6 py-4 whitespace-nowrap">Prénom</td>
-                        <td className="px-6 py-4 whitespace-nowrap">{user.lastname}</td>
-                    </tr>
-
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap">Email</td>
-                        <td className="px-6 py-4 whitespace-nowrap">{user.email}</td>
-                    </tr>
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap">Role</td>
-                        <td className="px-6 py-4 whitespace-nowrap">{user.role}</td>
+                        <td className="px-6 py-4 whitespace-nowrap">Role :</td>
+                        <td className="px-6 py-4 whitespace-nowrap">{role}</td>
                     </tr>
                 </tbody>
             </table>
