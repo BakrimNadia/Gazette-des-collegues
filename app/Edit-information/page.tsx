@@ -27,8 +27,6 @@ export default function EditInformation() {
   const [content, setContent] = useState('');
   const [datePublication, setdatePublication] = useState('');
   const [authors, setAuthors] = useState('');
- // const [firstName, setFirstName] = useState('');
-  //const [lastName, setLastName] = useState('');
 
   
   

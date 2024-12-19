@@ -1,8 +1,30 @@
 "use client";
 
-import CardProfil from "../Components/CardProfil";
+import CardProfilNews from "../Components/CardProfilNews";
+import { INews } from "@/@types/news";
+import { actionThunkNewsList } from "@/lib/thunks/news.thunk";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useEffect } from "react";
+import Loader from "../Components/Loader";
 
 export default function Profil() {
+    const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    console.log("Dispatching action to fetch news");
+    dispatch(actionThunkNewsList());
+  }, [dispatch]);
+
+  const news: INews[] = useAppSelector((state) => state.news.newsList);
+  console.log(news);
+
+    const isLoading = useAppSelector((state) => state.news.isloading);
+  
+    if (isLoading) {
+      return <Loader />;
+    }
+  
+
     return (
         <div className="flex flex-col items-center min-h-screen">
             <div>
@@ -47,7 +69,18 @@ export default function Profil() {
             </div>
             <h2 className="text-3xl text-center mt-4">Mes redactions</h2>
             <div className="mt-10 mb-10">
-                <CardProfil />
+                <h3 className="text-center font-bold mb-10">Informations publiées</h3>
+                {news.map((newsItem) => {
+                        return <CardProfilNews key={newsItem.id} newItem={newsItem} />;
+                      })}
+            </div>
+            <div className="mt-10 mb-10">
+            <h3 className="text-center font-bold mb-10">Articles publiées</h3>
+                mes articles
+            </div>
+            <div className="mt-10 mb-10">
+            <h3 className="text-center font-bold mb-10">Annonces publiées</h3>
+                mes annonces
             </div>
         </div>
     );
