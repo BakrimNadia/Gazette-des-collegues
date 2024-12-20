@@ -40,6 +40,29 @@ export default function Home() {
           fill
         />
       </section>
+      <section className="mt-10 justify-center items-center flex flex-row ">
+        <div className="w-1/2 mx-5 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-center text-gray-600 sm:text-3xl mb-8">
+            A la une
+          </h2>
+          <p>
+            <span className="font-bold">Réunion importante  de 15 septembre,</span> en raison du nouveau contrat avec le fournisseur.
+            </p><br />
+            <p>
+            Merci de vous inscrire au plus vite auprès d e la RH afin de confirmer votre présence.
+            Les 
+          </p>
+        </div>
+        <div className="w-1/2"> 
+          <img
+            src="https://www.image-heberg.fr/files/17310592731520636150.jpg"
+            alt="image de la une"
+            width={1000}
+            height={700}
+            className="mx-auto"
+          />
+        </div>
+      </section>
       <section className="w-full mt-10 justify-center items-center">
       <div>
         <h2 className="text-3xl font-bold tracking-tight text-center text-gray-600 sm:text-3xl mb-8">
