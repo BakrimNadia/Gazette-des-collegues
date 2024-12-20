@@ -2,6 +2,7 @@
 
 import CardAnnonce from "../Components/CardAnnonce";
 import { IAnnouncement } from "@/@types/announcement";
+import { ICategory } from "@/@types/category";
 import { actionThunkAnnouncementList } from "@/lib/thunks/announcement.thunk";
 import { actionThunkCategoryList } from "@/lib/thunks/category.thunk";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
@@ -15,7 +16,7 @@ export default function Annonces() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  const categories: { id: number; name: string }[] = useAppSelector((state) => state.category.categoryList);
+  const categories: ICategory[] = useAppSelector((state) => state.category.categoryList);
 
   useEffect(() => {
     console.log("Dispatching action to fetch announcement");
@@ -34,7 +35,10 @@ export default function Annonces() {
 
   const filteredAnnouncements = announcement.filter((announcementItem) => {
     const matchesSearchTerm = announcementItem.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory ? announcementItem.category?.name === selectedCategory : true;
+    const matchesCategory = selectedCategory === "" || 
+                          (announcementItem.category?.name && 
+                           announcementItem.category.name.toLowerCase() === selectedCategory.toLowerCase());
+                           console.log(announcementItem.category?.name);
     return matchesSearchTerm && matchesCategory;
   });
 
@@ -90,7 +94,6 @@ export default function Annonces() {
           classNames={{
             label: "font-bold text-black/50 dark:text-white/90",
             popoverContent: "bg-default-200/50 dark:bg-default/60 backdrop-blur-xl shadow-xl",
-            //item: "text-black/90 dark:text-white/90 hover:bg-default-300/50",
             trigger: [
               "shadow-xl",
               "bg-default-200/50",
@@ -107,8 +110,7 @@ export default function Annonces() {
             <SelectItem key={category.id} value={`${category.name}`}>
               {category.name}
         </SelectItem>
-      ))}
-           
+      ))}  
         </Select>
       </div>
       <section className="mt-8 mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-center mx-2">

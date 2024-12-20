@@ -98,7 +98,7 @@ export default function EditInformation() {
         className="block w-full text-sm text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-50 file:text-indigo-600 hover:file:bg-gray-100"
         onChange={handleFileChange}
         />
-       {picture && <img src={picture} alt="Prévisualisation" />}
+        {picture && <img src={picture} alt="Prévisualisation" />}       
     </div>
   </div>
 

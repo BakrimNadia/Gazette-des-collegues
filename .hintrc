@@ -7,7 +7,8 @@
       "default",
       {
         "autocomplete-valid": "off",
-        "label": "off"
+        "label": "off",
+        "select-name": "off"
       }
     ]
   }
