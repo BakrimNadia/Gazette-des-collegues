@@ -1,8 +1,10 @@
 import { IUser } from '../../@types/user';
 import { createReducer } from '@reduxjs/toolkit';
 import {
+  actionThunkUpdateUser,
   actionThunkUserById,
   actionThunkUserList,
+
   actionUserSoftDelete,
 } from '../thunks/user.thunk';
 import {
@@ -88,6 +90,27 @@ const userReducer = createReducer(initialState, (builder) => {
     is_active: true, 
   };
 })
+
+    .addCase(actionThunkUpdateUser.pending, (state) => {
+      state.isloading = true;
+    })
+    .addCase(actionThunkUpdateUser.fulfilled, (state) => {
+      state.isloading = false;
+      state.user = {
+        id: 0,
+        email: '',
+        lastname: '',
+        firstname: '',
+        password: '',
+        role: '',
+        is_active: true,
+      };
+    })
+    .addCase(actionThunkUpdateUser.rejected, (state) => {
+      state.isloading = false;
+      state.error = 'Erreur lors de la mise à jour de l\'utilisateur';
+    })
+    
 
     .addCase(actionUserSoftDelete.fulfilled, (state) => {
       state.remove = true;
