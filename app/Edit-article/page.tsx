@@ -1,8 +1,47 @@
 'use client';
 
+import { useAppDispatch, useAppSelector} from '../../lib/hooks';
+import { useEffect, useState } from 'react';
+import { actionSetArticle } from '../../lib/actions/article.action';
+import { actionThunkAddArticle } from '../../lib/thunks/article.thunk';
+import { actionThunkUserList } from '../../lib/thunks/user.thunk';
+
 import ModalContitions from "../Components/ModalConditions";
 
 export default function EditArticle() {
+
+  const dispatch = useAppDispatch();
+
+  const users = useAppSelector((state) => state.user.users);
+
+  useEffect(() => {
+    dispatch(actionThunkUserList());
+  }, [dispatch]);
+
+  const [picture, setPicture] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [title, setTitle] = useState('');
+  const [subtitle, setSubtitle] = useState('');
+  const [content, setContent] = useState('');
+  const [datePublication, setdatePublication] = useState('');
+  const [authors, setAuthors] = useState('');
+
+  
+  
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setSelectedFile(file);
+    setPicture(file ? URL.createObjectURL(file) : 'https://www.image-heberg.fr/files/17321854994127176357.jpg'); 
+  };
+
+  useEffect(() => {
+    if (users && users.length > 0) {
+      setAuthors(`${users[0].firstname} ${users[0].lastname}`);
+    }
+  }, [users]);
+
   return (
     <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
       {/* Background Gradient */}
@@ -23,7 +62,25 @@ export default function EditArticle() {
       </div>
 
       {/* Form */}
-      <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
+      <form action="#" 
+      method="POST" 
+      className="mx-auto mt-16 max-w-xl sm:mt-20"
+      onSubmit={async (e) => {
+        e.preventDefault();
+          dispatch(actionSetArticle({ name: 'picture', value: picture }));
+          dispatch(actionSetArticle({ name: 'title', value: title }));
+          dispatch(actionSetArticle({ name: 'subtitle', value: subtitle }));
+          dispatch(actionSetArticle({ name: 'content', value: content }));
+          dispatch(actionSetArticle({ name: 'date_publication', value: datePublication }));
+          const selectedUser = users.find(user => ` ${user.firstname} ${user.lastname}` === authors);
+          if (selectedUser) {
+            dispatch(actionSetArticle({ name: 'articleAuthor', value: `${selectedUser.firstname} ${selectedUser.lastname}` }));
+            dispatch(actionSetArticle({ name: 'user_id', value: selectedUser.id.toString() }));
+          }
+
+          await dispatch(actionThunkAddArticle());
+        }}
+      >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
  
         <div className="sm:col-span-2">
@@ -37,7 +94,9 @@ export default function EditArticle() {
         type="file"
         accept="image/*" 
         className="block w-full text-sm text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-50 file:text-indigo-600 hover:file:bg-gray-100"
-      />
+        onChange={handleFileChange}
+        />
+        {picture && <img src={picture} alt="Prévisualisation" />} 
     </div>
   </div>
 
@@ -52,6 +111,10 @@ export default function EditArticle() {
                 type="text"
                 autoComplete="organization"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -67,23 +130,35 @@ export default function EditArticle() {
                 type="text"
                 autoComplete="organization"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={subtitle}
+                onChange={(e) => {
+                  setSubtitle(e.target.value);
+                }}
               />
             </div>
           </div>
 
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-              Auteur
-            </label>
-            <div className="mt-2.5">
-              <input
-                id="author"
-                name="author"
-                type="text"
-                autoComplete="email"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
+          <label htmlFor="users" className="block text-sm font-semibold leading-6 text-gray-900">
+    Auteur
+  </label>
+  <select
+      required
+      id="users"
+      name="users"
+      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      value={authors}
+      onChange={(e) => {
+        setAuthors(e.target.value);
+      }}
+    >
+      <option value="" disabled>Choisissez un auteur</option>
+      {users.map((user) => (
+            <option key={user.id} value={`${user.firstname} ${user.lastname}`}>
+              {user.firstname} {user.lastname}
+        </option>
+      ))}
+    </select>
           </div>
 
           <div className="sm:col-span-2">
@@ -96,6 +171,10 @@ export default function EditArticle() {
                 name="date"
                 type="date"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={datePublication}
+                onChange={(e) => {
+                  setdatePublication(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -110,7 +189,10 @@ export default function EditArticle() {
                 name="message"
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                defaultValue={''}
+                value={content}
+                onChange={(e) => {
+                  setContent(e.target.value);
+                }}
               />
             </div>
           </div>
