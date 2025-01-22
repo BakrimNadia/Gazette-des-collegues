@@ -9,9 +9,11 @@ export default function Home() {
   <div>
         <div className="mt-10"> 
           <div className="items-center text-center justify-center">
-      <h1 className="text-6xl font-extrabold text-center relative inline-block text-black p-3 mb-4">
-        Bienvenue dans notre blog d&apos;entreprise
-      </h1>
+          <h1
+            className="text-6xl font-extrabold text-center relative inline-block p-3 mb-4 gradient-text"
+          >
+            Bienvenue dans notre blog d&apos;entreprise
+          </h1>
         </div>
           <Image
             src="/images/logoGC.png"

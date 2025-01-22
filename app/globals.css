@@ -2,3 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+
+body{
+    background-image:url('../public/images/grey.jpg');
+}
+
+
+
+.gradient-text {
+    background: linear-gradient(90deg, grey, black, gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }

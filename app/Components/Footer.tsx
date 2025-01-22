@@ -8,16 +8,16 @@ export default function Footer() {
         <p className="font-bold text-white">Suivez-nous sur les réseaux</p>
         <div className="flex justify-center space-x-4 mt-2">
           <Link href="https://www.facebook.com" target="_blank" rel="noreferrer">
-            <Facebook className="w-6 h-6 text-white-500"/>
+            <Facebook className="w-6 h-6 text-white"/>
           </Link>
           <Link href="https://www.instagram.com" target="_blank" rel="noreferrer">
-            <Instagram className="w-6 h-6 text-white-500"/>
+            <Instagram className="w-6 h-6 text-white"/>
           </Link>
           <Link href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-          <Linkedin className="w-6 h-6 text-white-500"/>
+          <Linkedin className="w-6 h-6 text-white"/>
           </Link>
           <Link href="https://www.twitter.com" target="_blank" rel="noreferrer">
-          <Twitter className="w-6 h-6 text-white-500"/>
+          <Twitter className="w-6 h-6 text-white"/>
           </Link>
         </div>
       </footer>
