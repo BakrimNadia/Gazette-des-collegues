@@ -6,13 +6,13 @@ export default function CardHome() {
   const list = [
     {
       title: "Consultez les informations internes",
-      img: "images/building2.jpeg",
+      img: "images/entreprise-fauteuil.jpg",
       subtitle: "Accédez",
       link: "/Informations", 
     },
     {
       title: "Lisez nos articles d'actualité",
-      img: "images/voiture-electrique.jpeg",
+      img: "images/articles.jpeg",
       subtitle: "Accédez",
       link: "/Articles", 
     },
@@ -24,7 +24,7 @@ export default function CardHome() {
     },
     {
       title: "Une suggestion ? Contactez-nous",
-      img: "images/enveloppe2.jpeg",
+      img: "images/mailing.jpeg",
       subtitle: "Accédez",
       link: "/Contact", 
     },

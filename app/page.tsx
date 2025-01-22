@@ -3,6 +3,7 @@
 import { Avatar } from "@nextui-org/react";
 import CardHome from "./Components/CardHome";
 import Image from 'next/image';
+import Newsletter from "./Components/newsletter";
 
 export default function Home() {
   return ( 
@@ -69,6 +70,9 @@ export default function Home() {
       <Avatar isBordered src="https://i.pravatar.cc/150?u=a04258114e29026708c" />
     </div>
       </section>
+      <section className="mt-8 justify-center items-center">
+        <Newsletter />
+        </section>
     </div>
   );
 }
