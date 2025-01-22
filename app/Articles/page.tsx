@@ -38,11 +38,8 @@ export default function Articles() {
           Nos Articles / actualités
         </h1>
       </div>
-      <p className="text-3xl text-center mt-4">
-        Voici quelques articles qui pourraient vous intéresser
-      </p>
       <div className="mt-4 mx-8 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#D3D3D3] to-[#B0EACD]">
-        <p className="text-lg font-bold text-center mb-4 mt-4">Notre équipe de rédacteur vous publie chaque semaines des articles d&apos;actualités intéressants. N&apos;hésitez pas à nous suggerer des articles et à les envoyer via notre formulaire de contact</p>
+        <p className="text-lg font-bold text-center mb-4 mt-4">Voici quelques articles qui pourraient vous intéresser, notre équipe de rédacteur vous publie chaque semaines des articles d&apos;actualités intéressants. N&apos;hésitez pas à nous suggerer des articles et à les envoyer via notre formulaire de contact</p>
         <Input
         label="Rechercher un article"
         isClearable

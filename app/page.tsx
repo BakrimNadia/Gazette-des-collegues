@@ -45,7 +45,7 @@ export default function Home() {
       </section>
       <section className="w-full mt-10 justify-center items-center">
       <div>
-        <h2 className="text-3xl font-bold tracking-tight text-center text-gray-600 sm:text-3xl mb-8">
+        <h2 className="text-4xl font-bold tracking-tight text-center text-blue-800 sm:text-3xl mb-8">
          Parcourez nos différentes rubriques
         </h2>
       </div>
@@ -53,7 +53,7 @@ export default function Home() {
       </section>
       <section className="mt-8 justify-center items-center">
         <div className="mb-4">
-        <h2 className="text-3xl font-bold tracking-tight text-center text-gray-600 sm:text-3xl">Notre équipe de rédacteurs bénévoles</h2>
+        <h2 className="text-3xl font-bold tracking-tight text-center text-blue-800 sm:text-3xl mb-10">Notre équipe de rédacteurs bénévoles</h2>
         <p className="mt-2 text-lg text-center font-bold leading-8 text-gray-600 mx-6">
           Nos collègues rédacteurs se relaient pour vous proposer des articles de qualité et 
           vous partager les informations utiles de l&apos;entreprise, le tout dans un esprit de partage et de convivialité.

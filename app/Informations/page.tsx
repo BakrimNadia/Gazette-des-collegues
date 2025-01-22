@@ -39,11 +39,8 @@ export default function Informations() {
           Notes et Informations importantes
         </h1>
       </div>
-      <p className="text-3xl text-center mt-4">
-        Vous trouverez ici les notes de service et informations utiles concernant l&apos;entreprise
-      </p>
       <div className="mt-4 mb-4 mx-8 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#D3D3D3] to-[#B0EACD]">
-        <p className="text-lg text-center font-bold mb-4 mt-4">Merci de bien tenir compte des informations importantes, nous nous efforçons de publier rapidement pour que vous puissiez être informés en temps et en heure. </p>
+        <p className="text-lg text-center font-bold mb-4 mt-4">Vous trouverez ici les notes de service et informations utiles concernant l&apos;entreprise, merci de bien en tenir compte, nous nous efforçons de publier rapidement pour que vous puissiez être informés à temps. </p>
         <Input
         label="Rechercher une information"
         isClearable
