@@ -24,6 +24,10 @@ export default function Annonces() {
     dispatch(actionThunkCategoryList());
   }, [dispatch]);
 
+  const userRole = useAppSelector((state) => state.auth.role); 
+  const hasAccess = userRole === "Admin" || userRole === "Rédacteur" || userRole === "Employé";
+
+
   const announcement: IAnnouncement[] = useAppSelector((state) => state.announcement.announcementList);
   console.log(announcement);
 
@@ -118,12 +122,14 @@ export default function Annonces() {
         return <CardAnnonce key={announcementItem.id} announcementItem={announcementItem} />;
       })}
       </section>
+      {hasAccess && (
       <div className="mt-10 mb-10">
       <a 
       href="/Edit-annonce"
       className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] text-white font-bold px-4 py-2 rounded-md mx-5"
       >Editer une annonce</a>
       </div>
+      )}
     </div>
   );
 }

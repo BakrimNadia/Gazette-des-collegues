@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
   baseURL:
-    'http://localhost:9000/api/v1',
+    'https://api-gazette.onrender.com/api/v1',
 });
 
 export function addTokenJwtToAxiosInstance(token: string) {
