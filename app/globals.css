@@ -28,3 +28,36 @@ body{
       background-position: 0% 50%;
     }
   }
+
+  /* Effet de zoom sur l'image d'arrière-plan */
+@keyframes zoomBackground {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 110%;
+  }
+}
+
+/* Effet de défilement du texte qui s'arrête au centre */
+@keyframes textSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0); /* Le texte sera centré à 50% de l'animation */
+  }
+  100% {
+    transform: translateX(0); /* Le texte reste centré */
+  }
+}
+
+/* Effet de zoom sur l'image d'arrière-plan */
+@keyframes zoomBackground {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 110%;
+  }
+}
