@@ -31,6 +31,11 @@ export default function Articles() {
     return <Loader />;
   }
 
+  const filteredArticles = article.filter((articleItem) => {
+  const matchesSearchTerm = articleItem.title.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesSearchTerm;
+  });
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div>
@@ -75,7 +80,7 @@ export default function Articles() {
         />
       </div>
       <section className="mt-8 mx-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center mb-10">
-      {article.map((articleItem) => {
+      {filteredArticles.map((articleItem) => {
         return <CardArticle key={articleItem.id} articleItem={articleItem} />;
       })}
       </section>

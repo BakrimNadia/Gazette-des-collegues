@@ -11,8 +11,7 @@ export default function Home() {
         <div className="mt-10"> 
           <div className="items-center text-center justify-center">
           <h1
-            className="text-6xl font-extrabold text-center relative inline-block p-3 mb-4 gradient-text"
-          >
+            className="text-6xl font-extrabold text-center relative inline-block p-3 mb-4 gradient-text">
             Bienvenue dans notre blog d&apos;entreprise
           </h1>
         </div>
@@ -45,10 +44,10 @@ export default function Home() {
       </section>
       <section className="w-full mt-10 justify-center items-center">
       <div>
-        <h2 className="text-4xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+        <h2 className="text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
         style={{
           animation: "textSlide 5s ease-out forwards",
-          background: "linear-gradient(to right, #d6336c, #d6ad94)", 
+          background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
           WebkitBackgroundClip: "text", 
           WebkitTextFillColor: "transparent", 
           backgroundClip: "text", 
@@ -62,10 +61,10 @@ export default function Home() {
       </section>
       <section className="mt-8 justify-center items-center">
         <div className="mb-4">
-        <h2 className="text-4xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mt-6"
+        <h2 className="text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mt-6"
   style={{
     animation: "textSlide 5s ease-out forwards",
-    background: "linear-gradient(to right, #d6336c, #d6ad94)", 
+    background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
     WebkitBackgroundClip: "text", 
     WebkitTextFillColor: "transparent", 
     backgroundClip: "text", 

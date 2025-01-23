@@ -45,7 +45,7 @@ export default function CardHome() {
                 src={item.img}
               />
             </CardBody>
-            <CardFooter className="text-small justify-between">
+            <CardFooter className="text-small text-gray-600 justify-between">
               <b>{item.title}</b>
               <p className="text-default-500">{item.subtitle}</p>
             </CardFooter>

@@ -32,6 +32,11 @@ export default function Informations() {
     return <Loader />;
   }
 
+  const filteredNews = news.filter((newsItem) => {
+    const matchesSearchTerm = newsItem.title.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesSearchTerm;
+    });
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div>
@@ -76,7 +81,7 @@ export default function Informations() {
       />
       </div>
       <section className="mt-8 mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
-      {news.map((newsItem) => {
+      {filteredNews.map((newsItem) => {
         return <CardInformations key={newsItem.id} newItem={newsItem} />;
       })}
       </section>
