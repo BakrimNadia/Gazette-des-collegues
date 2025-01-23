@@ -8,7 +8,7 @@ import Newsletter from "./Components/newsletter";
 export default function Home() {
   return ( 
   <div>
-        <div className="mt-10"> 
+        <div className="mt-10 mx-2"> 
           <div className="items-center text-center justify-center">
           <h1
             className="text-6xl font-extrabold text-center relative inline-block p-3 mb-4 gradient-text">
