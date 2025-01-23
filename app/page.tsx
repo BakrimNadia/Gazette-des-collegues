@@ -87,7 +87,7 @@ export default function Home() {
       <Avatar isBordered src="https://i.pravatar.cc/150?u=a04258114e29026708c" />
     </div>
       </section>
-      <section className="mt-8 justify-center items-center">
+      <section className="justify-center items-center">
         <Newsletter />
         </section>
     </div>

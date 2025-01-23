@@ -20,7 +20,7 @@ export default function CardProfilArticles({ articleItem }: CardArticleProps) {
               radius="lg"
               width="100%"
               alt={articleItem.title}
-              className="w-full object-cover h-[150px] w-[200px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
+              className="w-full object-cover h-[150px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
               src={articleItem.picture}
             />
           </CardBody>
