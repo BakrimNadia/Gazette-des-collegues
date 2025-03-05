@@ -45,9 +45,9 @@ export default function Newsletter() {
               <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 <HandRaisedIcon aria-hidden="true" className="size-6 text-gray" />
               </div>
-              <dt className="mt-4 text-base font-semibold text-gray-700">No spam</dt>
+              <dt className="mt-4 text-base font-semibold text-gray-700">Informations interne</dt>
               <dd className="mt-2 text-base/7 text-gray-700">
-                Nous vous conseillons de vérifier vos spam afin de s&apos;assurer que nos mail vous parviennent correctement.
+                Nous vous partageons les notes de service et les informations importantes de l&apos;entreprise chaque semaine.
               </dd>
             </div>
           </dl>

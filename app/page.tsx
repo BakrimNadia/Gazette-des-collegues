@@ -71,7 +71,7 @@ export default function Home() {
     color: "black", 
   }}
         >Notre équipe de rédacteurs bénévoles</h2>
-        <p className="mt-6 text-lg text-center font-bold leading-8 text-gray-600 mx-6">
+        <p className="mt-6 text-lg text-center font-semibold leading-8 text-gray-600 mx-6">
           Nos collègues rédacteurs se relaient pour vous proposer des articles de qualité et 
           vous partager les informations utiles de l&apos;entreprise, le tout dans un esprit de partage et de convivialité.
           De plus, nous avons mis en place un système de petites annonces pour vous permettre de vendre ou d&apos;acheter des objets entre collègues, et même echanger ou proposer des services.
