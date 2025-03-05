@@ -63,7 +63,7 @@ export default function Annonces() {
         </h1>
       </div>
       
-      <div className="w-full max-w-screen-xl h-[240px] px-8 py-6 rounded-2xl flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 justify-center items-center bg-gradient-to-tr from-gray-400 to-blue-400 text-white shadow-xl">
+      <div className="w-full max-w-screen-xl h-[240px] px-8 py-6 rounded-2xl flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 justify-center items-center bg-gradient-to-r from-[#D3D3D3] to-[#B0EACD] text-white shadow-xl">
       <Input
         label="Rechercher une annonce"
         isClearable
