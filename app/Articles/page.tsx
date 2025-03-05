@@ -39,8 +39,17 @@ export default function Articles() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div>
-        <h1 className="text-4xl font-extrabold text-center relative inline-block text-gray-700 mt-3 p-3">
-          Nos Articles / actualités
+      <h1 className="mt-10 text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+        style={{
+          animation: "textSlide 5s ease-out forwards",
+          background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
+          WebkitBackgroundClip: "text", 
+          WebkitTextFillColor: "transparent", 
+          backgroundClip: "text", 
+          color: "black", 
+        }}
+        >
+         Nos articles
         </h1>
       </div>
       <div className="mt-4 mx-8 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#D3D3D3] to-[#B0EACD]">

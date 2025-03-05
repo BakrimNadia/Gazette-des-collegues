@@ -49,8 +49,17 @@ export default function Annonces() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen mx-2">
       <div>
-        <h1 className="text-4xl font-extrabold text-center relative inline-block text-gray-700 mt-3 p-3">
-          Nos Petites annonces
+      <h1 className="mt-10 text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+        style={{
+          animation: "textSlide 5s ease-out forwards",
+          background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
+          WebkitBackgroundClip: "text", 
+          WebkitTextFillColor: "transparent", 
+          backgroundClip: "text", 
+          color: "black", 
+        }}
+        >
+         Nos petites annonces
         </h1>
       </div>
       
