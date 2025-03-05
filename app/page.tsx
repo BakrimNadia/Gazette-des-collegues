@@ -9,19 +9,6 @@ export default function Home() {
   return ( 
   <div>
         <div className="mt-10 mx-2"> 
-          <div className="items-center text-center justify-center">
-          <h1
-            className="text-6xl font-extrabold text-center relative inline-block p-3 mb-4 gradient-text">
-            Bienvenue dans notre blog d&apos;entreprise
-          </h1>
-        </div>
-          <Image
-            src="/images/logoGC.png"
-            alt="logo de la gazette des collègues"
-            width={100}
-            height={100}
-            className="mx-auto mb-4"
-          />
           <Image
             src="/images/Lagazette.png"
             alt="logo de la gazette des collègues"
@@ -30,9 +17,18 @@ export default function Home() {
             className="mx-auto"
           />
    
-        <h2 className="text-3xl font-bold font-sans tracking-tight text-center text-gray-600 sm:text-3xl mb-8">
-          Un site de partage d&apos;infos / d&apos;articles / de petites annonces en interne
-        </h2>
+   <h1 className="text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+        style={{
+          animation: "textSlide 5s ease-out forwards",
+          background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
+          WebkitBackgroundClip: "text", 
+          WebkitTextFillColor: "transparent", 
+          backgroundClip: "text", 
+          color: "black", 
+        }}
+        >
+         Partage d&apos;informations internes, d&apos;articles et de petites annonces entre collègues
+        </h1>
       </div>
       <section className="relative h-[600px]"> 
         <Image
