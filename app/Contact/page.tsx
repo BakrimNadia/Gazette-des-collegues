@@ -12,28 +12,32 @@ export default function Contact() {
   const [messageValue, setMessageValue] = useState('');
 
   return (
-    <div className="relative isolate px-6 py-24 sm:py-32 lg:px-8">
-      {/* Background Gradient */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-10rem]"
-      >
-        <div className="custom-clip-path relative left-1/2 w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" />
-      </div>
-
+    <div className="relative isolate bg-[url('/images/groupe-main.png')] bg-cover bg-fixed px-6 py-24 sm:py-32 lg:px-8">
+ 
       {/* Main content */}
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contactez-nous</h2>
-        <p className="mt-2 text-md leading-8 text-gray-600">
-          Une suggestion ? Une question ? N&apos;hésitez pas à nous contacter, nous vous répondrons dans les plus brefs délais.
+      <div className="mx-auto max-w-3xl text-center">
+      <h1 className="mt-8 text-4xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+        style={{
+          animation: "textSlide 5s ease-out forwards",
+          background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
+          WebkitBackgroundClip: "text", 
+          WebkitTextFillColor: "transparent", 
+          backgroundClip: "text", 
+          color: "black", 
+        }}
+        >
+         Contactez-nous
+        </h1>
+        <p className="mt-2 text-md font-semibold leading-8 text-black">
+          Une suggestion ? Une question ? N&apos;hésitez pas à nous contacter.
         </p>
       </div>
 
       {/* Form */}
-      <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
+      <form action="#" method="POST" className="mx-auto border rounded-lg shadow-xl pt-4 pb-4 px-3 backdrop-blur-lg mt-16 max-w-xl sm:mt-20 ">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="first-name" className="block text-md font-semibold leading-6 text-white">
               Nom
             </label>
             <div className="mt-2.5">
@@ -53,7 +57,7 @@ export default function Contact() {
           </div>
 
           <div>
-            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="last-name" className="block text-md font-semibold leading-6 text-white">
               Prénom
             </label>
             <div className="mt-2.5">
@@ -73,7 +77,7 @@ export default function Contact() {
           </div>
 
           <div className="sm:col-span-2">
-            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="company" className="block text-md font-semibold leading-6 text-white">
               Poste dans l&apos;entreprise
             </label>
             <div className="mt-2.5">
@@ -92,7 +96,7 @@ export default function Contact() {
           </div>
 
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="email" className="block text-md font-semibold leading-6 text-white">
               Email
             </label>
             <div className="mt-2.5">
@@ -112,7 +116,7 @@ export default function Contact() {
           </div>
 
           <div className="sm:col-span-2">
-            <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="phone-number" className="block text-md font-semibold leading-6 text-white">
               Téléphone
             </label>
             <div className="relative mt-2.5">
@@ -132,7 +136,7 @@ export default function Contact() {
           </div>
 
           <div className="sm:col-span-2 mb-4">
-            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="message" className="block text-md font-semibold leading-6 text-white">
               Message
             </label>
             <div className="mt-2.5">
@@ -154,7 +158,7 @@ export default function Contact() {
         <div className="mt-10">
           <button
             type="submit"
-            className="block w-full rounded-md bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="block w-full rounded-md bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] px-3.5 py-2.5 text-center text-md font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Envoyer
           </button>

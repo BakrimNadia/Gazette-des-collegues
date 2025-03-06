@@ -36,7 +36,18 @@ export default function Inscription() {
 
       {/* Main content */}
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-600 sm:text-4xl">Inscription d&apos;un employé</h2>
+      <h1 className="mt-10 text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+        style={{
+          animation: "textSlide 5s ease-out forwards",
+          background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
+          WebkitBackgroundClip: "text", 
+          WebkitTextFillColor: "transparent", 
+          backgroundClip: "text", 
+          color: "black", 
+        }}
+        >
+         Inscription
+        </h1>
         <p className="mt-6 text-md text-justify leading-8 text-gray-600">
           L&apos;inscription permet à l&apos;employé de se connecter et d&apos;accéder aux fonctionnalités telles que l&apos;édition, la modification et la suppression d&apos;article, de note d&apos;information et d&apos;annonces. Cependant, l&apos;administrateur se réserve le droit d&apos;approuver ou de supprimer un utilisateur.
         </p>
