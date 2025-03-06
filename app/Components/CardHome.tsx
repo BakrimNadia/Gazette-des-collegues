@@ -11,14 +11,14 @@ export default function CardHome() {
       link: "/Informations", 
     },
     {
-      title: "Lisez nos articles d'actualité",
-      img: "images/articles.jpeg",
+      title: "Lisez nos articles du blog",
+      img: "images/blog.jpg",
       subtitle: "Accédez",
       link: "/Articles", 
     },
     {
       title: "Petites annonces entre collègues",
-      img: "images/velo.jpeg",
+      img: "images/bike.jpg",
       subtitle: "Accédez",
       link: "/Annonces", 
     },

@@ -6,7 +6,7 @@ import Newsletter from "./Components/newsletter";
 
 export default function Home() {
   return ( 
-    <div>
+    <div className="bg-[url('/images/grey.jpg')] bg-cover bg-fixed">
       {/* Section vidéo + H1 */}
       <section className="relative w-full h-96">
         {/* Vidéo en arrière-plan */}

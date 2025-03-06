@@ -49,7 +49,7 @@ export default function Articles() {
           color: "black", 
         }}
         >
-         Nos articles
+         <span>Le blog</span> <br/>Articles rédigés par nos rédacteurs
         </h1>
       </div>
       <div className="mt-4 mx-8 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#D3D3D3] to-[#B0EACD]">

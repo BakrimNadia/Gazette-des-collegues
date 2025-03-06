@@ -11,7 +11,7 @@ import { getTokenAndPseudoFromLocalStorage } from '@/localStorage/localStorage';
 const navigation = [
   { name: 'Accueil', href: '/', current: false },
   { name: 'Informations', href: '/Informations', current: false },
-  { name: 'Articles', href: '/Articles', current: false },
+  { name: 'Blog', href: '/Articles', current: false },
   { name: 'Petites annonces', href: '/Annonces', current: false },
   { name: 'Contact', href: '/Contact', current: false },
 ];
