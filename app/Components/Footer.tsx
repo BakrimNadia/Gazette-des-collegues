@@ -3,7 +3,7 @@ import { Facebook, Instagram, Linkedin, Twitter } from "react-feather";
 
 export default function Footer() {  
     return (
-        <footer className="bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] text-center p-4">
+        <footer className="bg-gradient-to-b from-black to-gray-700 text-center p-4">
         <p className="text-white">© 2024 tous droits réservés</p>
         <p className="font-bold text-white">Suivez-nous sur les réseaux</p>
         <div className="flex justify-center space-x-4 mt-2">
