@@ -24,7 +24,7 @@ export default function Home() {
         {/* Texte au-dessus de la vidéo */}
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 p-4">
   <h1 
-    className="text-5xl md:text-4xl sm:text-2xl font-bold tracking-tight text-center mb-8"
+    className="text-5xl md:text-4xl sm:text-2xl font-bold tracking-tight item-center justify-center text-center mb-8"
     style={{
       animation: "textSlide 5s ease-out forwards",
       background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
@@ -34,9 +34,9 @@ export default function Home() {
       color: "black",
     }}
   >
-    <span className="block text-6xl md:text-5xl sm:text-3xl">La Gazette des collègues</span> 
+    <span className="block text-4xl md:text-4xl sm:text-2xl pt-2 mt-2">La Gazette des collègues</span> 
     <br /> 
-    <span className="text-4xl md:text-3xl sm:text-xl">
+    <span className="text-3xl md:text-3xl sm:text-xl">
       Partage d&apos;informations internes, d&apos;articles et de petites annonces entre collègues
     </span>
   </h1>
