@@ -111,7 +111,7 @@ export default function Navbar() {
               </MenuButton>
               
               {/* Menu conditionnel en fonction de la présence du pseudo */}
-              <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 {pseudo ? (
                   <>
                     <MenuItem>
@@ -120,14 +120,14 @@ export default function Navbar() {
                       </span>
                     </MenuItem>
                     <MenuItem>
-                        <a href="/Profil" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <a href="/Profil" className="block px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">
                         Mon Profil
                     </a>
                     </MenuItem>
                     <MenuItem>
                       <button
                         onClick={handleLogout}
-                        className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                        className="block w-full px-4 py-2 text-left text-sm font-semibold text-gray-700 hover:bg-gray-100"
                       >
                         Déconnexion
                       </button>
@@ -137,12 +137,12 @@ export default function Navbar() {
                 ) : (
                   <>
                     <MenuItem>
-                      <a href="/Connexion" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <a href="/Connexion" className="block px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">
                         Connexion
                       </a>
                     </MenuItem>
                     <MenuItem>
-                      <a href="/Inscription" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <a href="/Inscription" className="block px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">
                         Inscription
                       </a>
                     </MenuItem>

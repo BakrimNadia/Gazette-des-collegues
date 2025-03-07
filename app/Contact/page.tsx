@@ -12,11 +12,11 @@ export default function Contact() {
   const [messageValue, setMessageValue] = useState('');
 
   return (
-    <div className="relative isolate bg-[url('/images/groupe-main.png')] bg-cover bg-fixed px-6 py-24 sm:py-32 lg:px-8">
+    <div className="relative isolate bg-[url('/images/connect.jpg')] bg-cover bg-fixed px-6 py-24 sm:py-32 lg:px-8">
  
       {/* Main content */}
       <div className="mx-auto max-w-3xl text-center">
-      <h1 className="mt-8 text-4xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+      <h1 className="mt-5 mb-5 pt-2 pb-2 mx-2 px-2 text-4xl font-bold tracking-tight text-center border rounded-lg backdrop-blur-lg sm:text-3xl mb-8"
         style={{
           animation: "textSlide 5s ease-out forwards",
           background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 

@@ -25,18 +25,10 @@ export default function Inscription() {
   const [role, setRole] = useState('');
 
   return (
-    <div className="relative isolate px-6 py-24 sm:py-32 lg:px-8">
-      {/* Background Gradient */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-10rem]"
-      >
-        <div className="custom-clip-path relative left-1/2 w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" />
-      </div>
-
+    <div className="relative isolate px-6 py-24 bg-[url('/images/connect.jpg')] sm:py-32 lg:px-8">
       {/* Main content */}
       <div className="mx-auto max-w-2xl text-center">
-      <h1 className="mt-10 text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+      <h1 className="pt-2 pb-2 text-5xl font-bold tracking-tight text-center border rounded-lg backdrop-blur-lg sm:text-3xl mb-8"
         style={{
           animation: "textSlide 5s ease-out forwards",
           background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
@@ -48,14 +40,11 @@ export default function Inscription() {
         >
          Inscription
         </h1>
-        <p className="mt-6 text-md text-justify leading-8 text-gray-600">
-          L&apos;inscription permet à l&apos;employé de se connecter et d&apos;accéder aux fonctionnalités telles que l&apos;édition, la modification et la suppression d&apos;article, de note d&apos;information et d&apos;annonces. Cependant, l&apos;administrateur se réserve le droit d&apos;approuver ou de supprimer un utilisateur.
-        </p>
       </div>
 
       {/* Form */}
       <form method='post'
-      className="mx-auto mt-16 max-w-xl sm:mt-20"
+      className="mx-auto border rounded-lg shadow-xl pt-4 pb-4 px-3 backdrop-blur-lg mt-16 max-w-xl sm:mt-20"
       onSubmit={async (e) => {
         e.preventDefault();
           dispatch(actionSetUser({ name: 'lastname', value: lastname }));
@@ -70,7 +59,7 @@ export default function Inscription() {
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-white">
               Nom
             </label>
             <div className="mt-2.5">
@@ -90,7 +79,7 @@ export default function Inscription() {
           </div>
 
           <div>
-            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-white">
               Prénom
             </label>
             <div className="mt-2.5">
@@ -110,7 +99,7 @@ export default function Inscription() {
           </div>
 
           <div className="sm:col-span-2">
-  <label htmlFor="role" className="block text-sm font-semibold leading-6 text-gray-900">
+  <label htmlFor="role" className="block text-sm font-semibold leading-6 text-white">
     Rôle
   </label>
   <div className="mt-2.5">
@@ -136,7 +125,7 @@ export default function Inscription() {
 
 
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
               Email
             </label>
             <div className="mt-2.5">
@@ -156,7 +145,7 @@ export default function Inscription() {
           </div>
 
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
               Mot de passe
             </label>
             <div className="mt-2.5">
@@ -176,7 +165,7 @@ export default function Inscription() {
           </div>
 
           <div className="sm:col-span-2 mb-4">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
               Confirmation du mot de passe
             </label>
             <div className="mt-2.5">

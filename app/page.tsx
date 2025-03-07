@@ -6,7 +6,7 @@ import Newsletter from "./Components/newsletter";
 
 export default function Home() {
   return ( 
-    <div className="bg-[url('/images/grey.jpg')] bg-cover bg-fixed">
+    <div className="bg-cover bg-fixed">
       {/* Section vidéo + H1 */}
       <section className="relative w-full h-96">
         {/* Vidéo en arrière-plan */}
@@ -17,7 +17,7 @@ export default function Home() {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
-          <source src="/videos/immeuble.mp4" type="video/mp4" />
+          <source src="/videos/city.mp4" type="video/mp4" />
           Votre navigateur ne supporte pas les vidéos HTML5.
         </video>
 
@@ -26,7 +26,7 @@ export default function Home() {
   <h1 
     className="text-5xl md:text-4xl sm:text-2xl font-bold tracking-tight item-center justify-center text-center mb-8"
     style={{
-      animation: "textSlide 5s ease-out forwards",
+      animation: "fadeInUp 1.5s ease-out forwards",
       background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
       WebkitBackgroundClip: "text", 
       WebkitTextFillColor: "transparent", 
@@ -47,7 +47,7 @@ export default function Home() {
       <section className="w-full mt-10 flex flex-col items-center">
         <h2 className="text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
           style={{
-            animation: "textSlide 5s ease-out forwards",
+            animation: "fadeInUp 1.5s ease-out forwards",
             background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
             WebkitBackgroundClip: "text", 
             WebkitTextFillColor: "transparent", 
@@ -62,10 +62,10 @@ export default function Home() {
 
       {/* Section équipe */}
       <section className="mt-8 flex flex-col items-center">
-        <div className="mb-4">
+        <div className="mb-2">
           <h2 className="text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mt-6"
             style={{
-              animation: "textSlide 5s ease-out forwards",
+              animation: "fadeInUp 1.5s ease-out forwards",
               background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
               WebkitBackgroundClip: "text", 
               WebkitTextFillColor: "transparent", 
@@ -75,7 +75,7 @@ export default function Home() {
           >
             Notre équipe de rédacteurs bénévoles
           </h2>
-          <p className="mt-6 text-lg text-center font-semibold leading-8 text-gray-600 mx-6">
+          <p className="mt-6 text-lg text-center font-semibold leading-8 text-gray-700 mx-6">
             Nos collègues rédacteurs se relaient pour vous proposer des articles de qualité et 
             vous partager les informations utiles de l&apos;entreprise, le tout dans un esprit de partage et de convivialité.
             De plus, nous avons mis en place un système de petites annonces pour vous permettre de vendre ou d&apos;acheter des objets entre collègues, et même échanger ou proposer des services.
@@ -84,7 +84,7 @@ export default function Home() {
         </div>
 
         {/* Avatars */}
-        <div className="flex gap-4 justify-center items-center mt-10">
+        <div className="flex gap-4 justify-center items-center mt-2">
           <Avatar isBordered src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
           <Avatar isBordered src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
           <Avatar isBordered src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />

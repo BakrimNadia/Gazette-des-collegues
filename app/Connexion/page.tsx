@@ -52,7 +52,18 @@ export default function Connexion() {
 
       {/* Main content */}
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-600 sm:text-4xl">Connexion</h2>
+      <h2 className="text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+          style={{
+            animation: "fadeInUp 1.5s ease-out forwards",
+            background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
+            WebkitBackgroundClip: "text", 
+            WebkitTextFillColor: "transparent", 
+            backgroundClip: "text", 
+            color: "black",
+          }}
+        >
+          Connexion
+        </h2>
         <p className="mt-2 text-md leading-8 text-gray-600">
           Entrez vos identifiants pour vous connecter.
         </p>

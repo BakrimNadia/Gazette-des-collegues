@@ -6,7 +6,7 @@ export default function CardHome() {
   const list = [
     {
       title: "Consultez les informations internes",
-      img: "images/entreprise-fauteuil.jpg",
+      img: "images/bureau1.jpeg",
       subtitle: "Accédez",
       link: "/Informations", 
     },
@@ -45,7 +45,7 @@ export default function CardHome() {
                 src={item.img}
               />
             </CardBody>
-            <CardFooter className="text-small text-gray-600 justify-between">
+            <CardFooter className="text-small text-gray-600 justify-between bg-gradient-to-r from-[#D3D3D3] to-[#B0EACD] rounded-none">
               <b>{item.title}</b>
               <p className="text-default-500">{item.subtitle}</p>
             </CardFooter>
