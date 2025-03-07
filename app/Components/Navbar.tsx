@@ -120,14 +120,14 @@ export default function Navbar() {
                       </span>
                     </MenuItem>
                     <MenuItem>
-                        <a href="/Profil" className="block px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                        <a href="/Profil" className="block px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-100">
                         Mon Profil
                     </a>
                     </MenuItem>
                     <MenuItem>
                       <button
                         onClick={handleLogout}
-                        className="block w-full px-4 py-2 text-left text-sm font-semibold text-gray-700 hover:bg-gray-100"
+                        className="block w-full px-4 py-2 text-left text-sm font-semibold text-gray-700 hover:text-gray-100"
                       >
                         Déconnexion
                       </button>
@@ -137,12 +137,12 @@ export default function Navbar() {
                 ) : (
                   <>
                     <MenuItem>
-                      <a href="/Connexion" className="block px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                      <a href="/Connexion" className="block px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-100">
                         Connexion
                       </a>
                     </MenuItem>
                     <MenuItem>
-                      <a href="/Inscription" className="block px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                      <a href="/Inscription" className="block px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-100">
                         Inscription
                       </a>
                     </MenuItem>
