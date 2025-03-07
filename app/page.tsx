@@ -3,6 +3,7 @@
 import { Avatar } from "@nextui-org/react";
 import CardHome from "./Components/CardHome";
 import Newsletter from "./Components/newsletter";
+import Vecteurs from "./Components/Vecteurs";
 
 export default function Home() {
   return ( 
@@ -41,6 +42,9 @@ export default function Home() {
     </span>
   </h1>
 </div>
+      </section>
+      <section>
+        <Vecteurs />
       </section>
 
       {/* Contenu en dessous de la vidéo */}

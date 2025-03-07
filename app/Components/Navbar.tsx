@@ -111,7 +111,7 @@ export default function Navbar() {
               </MenuButton>
               
               {/* Menu conditionnel en fonction de la présence du pseudo */}
-              <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-lg bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 {pseudo ? (
                   <>
                     <MenuItem>

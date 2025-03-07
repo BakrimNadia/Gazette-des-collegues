@@ -41,7 +41,7 @@ export default function Articles() {
       <div>
       <h1 className="mt-10 text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
         style={{
-          animation: "textSlide 5s ease-out forwards",
+          animation: "fadeInUp 1.5s ease-out forwards",
           background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
           WebkitBackgroundClip: "text", 
           WebkitTextFillColor: "transparent", 
