@@ -38,6 +38,7 @@ export default function Articles() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
+      <img src="/images/journal.jpg" alt="monde journal" />
       <div>
       <h1 className="mt-10 text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
         style={{
