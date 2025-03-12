@@ -38,9 +38,8 @@ export default function Articles() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <img src="/images/journal.jpg" alt="monde journal" />
       <div>
-      <h1 className="mt-10 text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+      <h1 className="mt-10 !text-5xl font-bold tracking-tight text-center sm:text-3xl mb-8"
         style={{
           animation: "fadeInUp 1.5s ease-out forwards",
           background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
@@ -50,10 +49,10 @@ export default function Articles() {
           color: "black", 
         }}
         >
-         <span>Le blog</span> <br/>Articles rédigés par nos rédacteurs
+         <span>Le blog</span> <br/>rédigés par nos rédacteurs
         </h1>
       </div>
-      <div className="mt-4 mx-8 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#D3D3D3] to-[#B0EACD]">
+      <div className="mt-4 mx-2 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9]">
         <p className="text-lg font-bold text-center mb-4 mt-4 mx-2">Voici quelques articles qui pourraient vous intéresser, notre équipe de rédacteur vous publie chaque semaines des articles d&apos;actualités intéressants. N&apos;hésitez pas à nous suggerer des articles et à les envoyer via notre formulaire de contact</p>
         <Input
         label="Rechercher un article"

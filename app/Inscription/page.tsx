@@ -25,7 +25,7 @@ export default function Inscription() {
   const [role, setRole] = useState('');
 
   return (
-    <div className="relative isolate px-6 py-24 bg-[url('/images/connect.jpg')] opacity-85 sm:py-32 lg:px-8">
+    <div className="relative isolate px-6 py-24 bg-[url('/images/connect.jpg')] bg-cover bg-fixed opacity-85 sm:py-32 lg:px-8">
       {/* Main content */}
       <div className="mx-auto max-w-2xl text-center">
       <h1 className="pt-2 pb-2 text-5xl font-bold tracking-tight text-center border rounded-lg backdrop-blur-lg sm:text-3xl mb-8"

@@ -49,7 +49,7 @@ export default function Annonces() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen mx-2">
       <div>
-      <h1 className="mt-10 text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+      <h1 className="mt-10 !text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
         style={{
           animation: "fadeInUp 1.5s ease-out forwards",
           background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
@@ -63,7 +63,7 @@ export default function Annonces() {
         </h1>
       </div>
       
-      <div className="w-full max-w-screen-xl h-[240px] px-8 py-6 rounded-2xl flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 justify-center items-center bg-gradient-to-r from-[#D3D3D3] to-[#B0EACD] text-white shadow-xl">
+      <div className="w-full max-w-screen-xl h-[240px] px-8 py-6 rounded-2xl flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 justify-center items-center bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] text-white shadow-xl">
       <Input
         label="Rechercher une annonce"
         isClearable

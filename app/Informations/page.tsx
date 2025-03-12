@@ -40,7 +40,7 @@ export default function Informations() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div>
-      <h1 className="mt-10 text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
+      <h1 className="mt-10 !text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
         style={{
           animation: "textSlide 5s ease-out forwards",
           background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
@@ -53,7 +53,7 @@ export default function Informations() {
          Informations importantes et notes de service
         </h1>
       </div>
-      <div className="mt-4 mb-4 mx-8 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#D3D3D3] to-[#B0EACD]">
+      <div className="mt-4 mb-4 mx-2 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9]">
         <p className="text-lg text-center font-bold mb-4 mt-4">Vous trouverez ici les notes de service et informations utiles concernant l&apos;entreprise, merci de bien en tenir compte, nous nous efforçons de publier rapidement pour que vous puissiez être informés à temps. </p>
         <Input
         label="Rechercher une information"
