@@ -21,7 +21,7 @@ export default function CardArticle({articleItem}: CardArticleProps) {
           radius="lg"
           width="100%"
           alt={articleItem.title}
-          className="w-full object-cover h-[350px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
+          className="w-full object-cover h-[450px] transition-transform duration-500 ease-in-out transform group-hover:scale-110 hover:scale-105"
           src={articleItem.picture}
         />
       </CardBody>
@@ -29,7 +29,7 @@ export default function CardArticle({articleItem}: CardArticleProps) {
         <b className="mb-1">{articleItem.title}</b>
         <div className="flex justify-between w-full mt-">
           <p className="text-small justify-left">{articleItem.subtitle}</p>
-          <p className="text-default-500">Lire la suite...</p>
+          <p className="text-default-500 bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] px-2 py-2 rounded">Lire la suite...</p>
         </div>
       </CardFooter>
     </Card>
