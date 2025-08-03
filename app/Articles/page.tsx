@@ -49,11 +49,11 @@ export default function Articles() {
           color: "black", 
         }}
         >
-         <span>Le blog</span> <br/>rédigés par nos rédacteurs
+         <span>Le blog</span> <br/>par nos rédacteurs bénévoles
         </h1>
       </div>
       <div className="mt-4 mx-2 p-2 border-current rounded-lg shadow-xl bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9]">
-        <p className="text-lg font-bold text-center mb-4 mt-4 mx-2">Voici quelques articles qui pourraient vous intéresser, notre équipe de rédacteur vous publie chaque semaines des articles d&apos;actualités intéressants. N&apos;hésitez pas à nous suggerer des articles et à les envoyer via notre formulaire de contact</p>
+        <p className="text-lg font-bold text-center mb-4 mt-4 mx-2">Découvrez chaque semaine des articles d’actualité, des astuces et des annonces pour améliorer la vie de votre entreprise. Vous avez une idée ?</p>
         <Input
         label="Rechercher un article"
         isClearable

@@ -25,7 +25,7 @@ export default function CardArticle({articleItem}: CardArticleProps) {
           src={articleItem.picture}
         />
       </CardBody>
-      <CardFooter className="text-small flex flex-col items-start">
+      <CardFooter className="text-md flex flex-col items-start">
         <b className="mb-1">{articleItem.title}</b>
         <div className="flex justify-between w-full mt-">
           <p className="text-small justify-left">{articleItem.subtitle}</p>
