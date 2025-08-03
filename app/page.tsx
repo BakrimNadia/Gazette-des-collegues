@@ -7,7 +7,7 @@ import Vecteurs from "./Components/Vecteurs";
 
 export default function Home() {
   return ( 
-    <div className="bg-cover bg-fixed">
+    <div className="bg-cover bg-fixed bg-gradient-to-br from-[#e2e8f0] via-[#e7dacb] to-[#e2e8f0]">
       {/* Section vidéo + H1 */}
       <section className="relative w-full h-96">
         {/* Vidéo en arrière-plan */}
@@ -134,7 +134,7 @@ export default function Home() {
           "Des tutoriels vidéo internes",
           "Une messagerie interne"
         ].map((option, i) => (
-          <label key={i} className="block bg-gray-50 p-3 rounded-lg shadow-sm hover:bg-gray-100 cursor-pointer">
+          <label key={i} className="block bg-white/30 p-3 rounded-lg shadow-sm hover:bg-gray-100 cursor-pointer">
             <input type="radio" name="poll" value={option} className="mr-2" />
             {option}
           </label>
@@ -181,7 +181,7 @@ export default function Home() {
         answer: "Des collègues bénévoles, volontaires et passionnés par la vie de l'entreprise !"
       }
     ].map((item, index) => (
-      <details key={index} className="bg-white shadow-md rounded-lg p-4 cursor-pointer">
+      <details key={index} className="bg-white/30 shadow-md rounded-lg p-4 cursor-pointer">
         <summary className="font-semibold text-lg text-gray-800">{item.question}</summary>
         <p className="mt-2 text-gray-600">{item.answer}</p>
       </details>

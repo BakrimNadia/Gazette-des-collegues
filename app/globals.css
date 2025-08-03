@@ -4,8 +4,6 @@
 
 
 
-
-
 .gradient-text {
     background: linear-gradient(90deg, grey, black, gold);
     -webkit-background-clip: text;
