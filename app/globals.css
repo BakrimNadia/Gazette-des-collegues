@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e2e8f0 0%, #e7dacb 60%, #e2e8f0 100%);
+}
 
 .gradient-text {
     background: linear-gradient(90deg, grey, black, gold);

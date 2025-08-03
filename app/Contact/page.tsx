@@ -12,7 +12,7 @@ export default function Contact() {
   const [messageValue, setMessageValue] = useState('');
 
   return (
-    <div className="relative isolate bg-gradient-to-br from-[#e2e8f0] via-[#e7dacb] to-[#e2e8f0] px-2 py-10 sm:py-16 lg:px-8 min-h-screen flex items-center justify-center">
+    <div className="relative isolate px-2 py-10 sm:py-16 lg:px-3 min-h-screen flex items-center justify-center">
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-10">
         {/* Formulaire (gauche) */}
         <motion.div
@@ -23,7 +23,7 @@ export default function Contact() {
         >
           <div className="text-center lg:text-left mb-8">
             <h1
-              className="text-4xl font-bold tracking-tight mb-4 bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] bg-clip-text text-transparent"
+              className="text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-[#D4AF37] to-[#A9A9A9] bg-clip-text text-transparent"
               style={{
                 animation: "textSlide 5s ease-out forwards",
               }}

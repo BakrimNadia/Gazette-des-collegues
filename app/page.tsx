@@ -7,7 +7,7 @@ import Vecteurs from "./Components/Vecteurs";
 
 export default function Home() {
   return ( 
-    <div className="bg-cover bg-fixed bg-gradient-to-br from-[#e2e8f0] via-[#e7dacb] to-[#e2e8f0]">
+    <div className="flex flex-col min-h-screen">
       {/* Section vidéo + H1 */}
       <section className="relative w-full h-96">
         {/* Vidéo en arrière-plan */}
@@ -25,7 +25,7 @@ export default function Home() {
         {/* Texte au-dessus de la vidéo */}
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 p-4">
   <h1 
-    className="text-5xl md:text-4xl sm:text-2xl font-bold tracking-tight item-center justify-center text-center mb-8"
+    className="text-5xl md:text-4xl sm:text-2xl font-bold tracking-tight item-center justify-center text-center"
     style={{
       animation: "fadeInUp 1.5s ease-out forwards",
       background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
@@ -99,7 +99,7 @@ export default function Home() {
       </section>
 {/* Sondage salarié avec image */}
 <section className="mt-16 w-full max-w-5xl mx-auto px-4">
-  <div className="flex flex-col md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden">
+  <div className="flex flex-col md:flex-row items-center bg-white/30 shadow-lg rounded-lg overflow-hidden">
     
     {/* Image à gauche */}
     <div className="md:w-1/2 w-full h-64 md:h-auto">
@@ -190,7 +190,7 @@ export default function Home() {
 </section>
 
       {/* Newsletter */}
-      <section className="flex justify-center items-center mt-2">
+      <section className="flex justify-center items-center mt-2 ">
         <Newsletter />
       </section>
     </div>

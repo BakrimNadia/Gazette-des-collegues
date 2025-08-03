@@ -42,14 +42,6 @@ export default function Connexion() {
 
   return (
     <div className="relative isolate px-6 py-24 sm:py-32 lg:px-8">
-      {/* Background Gradient */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-10rem]"
-      >
-        <div className="custom-clip-path relative left-1/2 w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" />
-      </div>
-
       {/* Main content */}
       <div className="mx-auto max-w-2xl text-center">
       <h2 className="text-5xl font-bold tracking-tight text-center text-gray-700 sm:text-3xl mb-8"
