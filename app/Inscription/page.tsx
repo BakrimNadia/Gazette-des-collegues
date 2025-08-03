@@ -25,7 +25,7 @@ export default function Inscription() {
   const [role, setRole] = useState('');
 
   return (
-    <div className="relative isolate px-6 py-24 bg-[url('/images/connect.jpg')] bg-cover bg-fixed opacity-85 sm:py-32 lg:px-8">
+    <div className="relative isolate px-6 py-24 sm:py-32 lg:px-8">
       {/* Main content */}
       <div className="mx-auto max-w-2xl text-center">
       <h1 className="pt-2 pb-2 text-5xl font-bold tracking-tight text-center border rounded-lg backdrop-blur-lg sm:text-3xl mb-8"
@@ -59,7 +59,7 @@ export default function Inscription() {
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-700">
               Nom
             </label>
             <div className="mt-2.5">
@@ -79,7 +79,7 @@ export default function Inscription() {
           </div>
 
           <div>
-            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-700">
               Prénom
             </label>
             <div className="mt-2.5">
@@ -99,7 +99,7 @@ export default function Inscription() {
           </div>
 
           <div className="sm:col-span-2">
-  <label htmlFor="role" className="block text-sm font-semibold leading-6 text-white">
+  <label htmlFor="role" className="block text-sm font-semibold leading-6 text-gray-700">
     Rôle
   </label>
   <div className="mt-2.5">
@@ -125,7 +125,7 @@ export default function Inscription() {
 
 
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-700">
               Email
             </label>
             <div className="mt-2.5">
@@ -145,7 +145,7 @@ export default function Inscription() {
           </div>
 
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-700">
               Mot de passe
             </label>
             <div className="mt-2.5">
@@ -165,7 +165,7 @@ export default function Inscription() {
           </div>
 
           <div className="sm:col-span-2 mb-4">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-700">
               Confirmation du mot de passe
             </label>
             <div className="mt-2.5">

@@ -4,46 +4,13 @@ import { Avatar } from "@nextui-org/react";
 import CardHome from "./Components/CardHome";
 import Newsletter from "./Components/newsletter";
 import Vecteurs from "./Components/Vecteurs";
+import Hero from "./Components/Hero";
 
 export default function Home() {
   return ( 
     <div className="flex flex-col min-h-screen">
-      {/* Section vidéo + H1 */}
-      <section className="relative w-full h-96">
-        {/* Vidéo en arrière-plan */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        >
-          <source src="/videos/city.mp4" type="video/mp4" />
-          Votre navigateur ne supporte pas les vidéos HTML5.
-        </video>
-
-        {/* Texte au-dessus de la vidéo */}
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 p-4">
-  <h1 
-    className="text-5xl md:text-4xl sm:text-2xl font-bold tracking-tight item-center justify-center text-center"
-    style={{
-      animation: "fadeInUp 1.5s ease-out forwards",
-      background: "linear-gradient(to right, #D4AF37, #A9A9A9)", 
-      WebkitBackgroundClip: "text", 
-      WebkitTextFillColor: "transparent", 
-      backgroundClip: "text", 
-      color: "black",
-    }}
-  >
-    <span className="block text-4xl md:text-4xl sm:text-2xl pt-2 mt-2">La Gazette des collègues</span> 
-    <br /> 
-    <span className="text-3xl md:text-3xl sm:text-xl">
-      Partage d&apos;informations internes, d&apos;articles et de petites annonces entre collègues
-    </span>
-  </h1>
-</div>
-      </section>
-      <section>
+      <Hero />
+      <section id="presentation">
         <Vecteurs />
       </section>
 
